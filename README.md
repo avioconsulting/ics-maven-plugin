@@ -24,7 +24,11 @@ This plugin defines a new packaging type (iar) and hooks into the Maven lifecycl
 ### activate
 * Activates the integration
 * Parameters:
-** enableTrace - Defaults to false - This enables trace and audit payload.
+| Name | Default Value | Description |
+| ---- | ------------- | ----------- |
+| enableTrace | false | Enables trace and audit payload |
+
+	* enableTrace - Defaults to false - This enables trace and audit payload.
 
 ### deactivate
 * Dectivates the integration
