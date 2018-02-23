@@ -33,11 +33,11 @@ This plugin defines a new packaging type (iar) and hooks into the Maven lifecycl
 * Exports the integration as an iar file
 * Expands archive into standard project directory
 * Parameters:
-** export - Defaults to false - Enables the export
-** expand - Defaults to true - Expands into standard project directory
-** clean - Defaults to false - Removes local src/main directories (except src/main/config) to be replaced by export
-** connection - Name of connection to export (must be used in conjection with export=true)
-** overwrite - Defaults to false - Replaces connection property file (must be used in conjection with connection)
+	* export - Defaults to false - Enables the export
+	* expand - Defaults to true - Expands into standard project directory
+	* clean - Defaults to false - Removes local src/main directories (except src/main/config) to be replaced by export
+	* connection - Name of connection to export (must be used in conjection with export=true)
+	* overwrite - Defaults to false - Replaces connection property file (must be used in conjection with connection)
 
 ### import
 
@@ -193,5 +193,4 @@ mvn generate-resources -Denv=DEV -Dexport=true -Dconnection=CONNECTION_NAME
 ```
 
 Update the property file, and put into the /src/main/resources/config folder.
-
 
