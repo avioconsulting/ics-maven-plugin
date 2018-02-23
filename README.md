@@ -25,11 +25,10 @@ This plugin defines a new packaging type (iar) and hooks into the Maven lifecycl
 * Activates the integration
 * Parameters:
 
-| Name        | Default Value | Description                                                                        |
-| ----        | ------------- | ---------------------------------------------------------------------------------- |
-| enableTrace | false         | Enables trace and audit payload                                                    |
+	| Name        | Default Value | Description                                                                        |
+	| ----        | ------------- | ---------------------------------------------------------------------------------- |
+	| enableTrace | false         | Enables trace and audit payload                                                    |
 
-	* enableTrace - Defaults to false - This enables trace and audit payload.
 
 ### deactivate
 * Dectivates the integration
@@ -38,11 +37,14 @@ This plugin defines a new packaging type (iar) and hooks into the Maven lifecycl
 * Exports the integration as an iar file
 * Expands archive into standard project directory
 * Parameters:
-	* export - Defaults to false - Enables the export
-	* expand - Defaults to true - Expands into standard project directory
-	* clean - Defaults to false - Removes local src/main directories (except src/main/config) to be replaced by export
-	* connection - Name of connection to export (must be used in conjection with export=true)
-	* overwrite - Defaults to false - Replaces connection property file (must be used in conjection with connection)
+
+	| Name        | Default Value | Description                                                                        |
+	| ----        | ------------- | ---------------------------------------------------------------------------------- |
+	| export | false | Enables the export |
+	| expand | true - Expands into standard project directory |
+	| clean | false - Removes local src/main directories (except src/main/config) to be replaced by export |
+	| connection |  | Name of connection to export (must be used in conjection with export=true) |
+	| overwrite | false | Replaces connection property file (must be used in conjection with connection) |
 
 ### import
 
