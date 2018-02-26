@@ -18,25 +18,25 @@ This plugin defines a new packaging type (iar) and hooks into the Maven lifecycl
 * If the `connection` property is set (name of a connection), a template JSON config file will be created.
 
 ### package
-* Runs the `package` goal. This goal generates an iar archive file.
+* Runs the `package` goal. This goal generates an iar archive.
 
 ## Maven goals
 
 ### activate
-* Activates the integration
+* Activates the integration.
 * Parameters:
 
 	| Name        | Default Value | Description |
 	| ----        | ------------- | ------------ |
 	| enableTrace | false | Enables trace and audit payload  |
 
-
 ### deactivate
-* Dectivates the integration
+* Dectivates the integration.
+* Parameters: None
 
 ### export
-* Exports the integration as an iar file
-* Expands archive into standard project directory
+* Exports an integration from ICS as an iar file.
+* Expands archive into standard project directory (src/main).
 * Parameters:
 
 	| Name | Default Value | Description |
@@ -48,23 +48,49 @@ This plugin defines a new packaging type (iar) and hooks into the Maven lifecycl
 	| overwrite | false | Replaces connection property file (must be used in conjection with connection) |
 
 ### import
+* Builds an iar archive file from source, and imports into ICS.
+* The plugin handles deactivating, importing (or updating), creating and updating connections (if necessary), then activating the integration.
+* Parameters:
+
+	| Name | Default Value | Description |
+	| ---- | ------------- | -------------- |
+	| enableTrace | false | Enables trace and audit payload |
+	| importFile | target/NAME_VERSION.iar | Allows direct import of an iar archive |
 
 ### importOnly
+* The importOnly goal is to build and only import an iar.
+* This does not handle deactivate or activate, including updating any connections.
+* Parameters:
+
+	| Name | Default Value | Description |
+	| ---- | ------------- | -------------- |
+	| importFile | target/NAME_VERSION.iar | Allows direct import of an iar archive |
 
 ### package
+* Builds archive from the standard project directory.
+* Parameters: None
 
 ### delete
+* TODO
 
 ### updateConnection
+* Updates a connection, using the src/main/resources/config property files.
+* Parameters:
+
+	| Name | Default Value | Description |
+	| ---- | ------------- | -------------- |
+	| connection | | (Required) Name of the connection to update |
 
 ### deleteConnection
+* TODO
 
 
 ## Setup
 
 ### Building/installing
 
-1. 
+1. Until the plugin is published to Maven Central, run `mvn clean install` from the `ics-maven-plugin` subdirectory in this repository, to install the plugin in your local `.m2` repository.
+
 
 #### POM setup, example: document definitions
 
@@ -185,7 +211,6 @@ First export your project into an empty directory.
 ```
 mvn generate-resources -Dexport=true -Denv=DEV
 ```
-
 This will export the iar, and expand it into a standard project format (/src/main).
 
 Import the integration:
@@ -199,6 +224,5 @@ Connections need to be manually configured.  After exporting an integration, exp
 ```
 mvn generate-resources -Denv=DEV -Dexport=true -Dconnection=CONNECTION_NAME
 ```
-
 Update the property file, and put into the /src/main/resources/config folder.
 
