@@ -11,13 +11,18 @@ import java.io.IOException;
 
 @Mojo(name = "package", requiresProject = true)
 public class IntegrationPackageMojo extends AbstractIntegrationMojo{
+
+
+    @Parameter(property = "basedir")
+    private String projectDirectory;
+
     @Override
     public void execute() throws MojoExecutionException, MojoFailureException {
         getLog().info("Packaging integration " + integrationName + "_" + integrationVersion );
         try {
             Integration ii = new Integration(integrationName, integrationVersion, baseUrl, icsUser, icsPassword);
             ii.setLog(getLog());
-            ii.packageProject();
+            ii.packageProject(projectDirectory);
         } catch (IOException ioe) {
             ioe.printStackTrace();
             throw new MojoExecutionException(ioe.getMessage());

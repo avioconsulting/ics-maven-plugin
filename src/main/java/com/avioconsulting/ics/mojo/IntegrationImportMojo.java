@@ -28,6 +28,9 @@ public class IntegrationImportMojo extends AbstractIntegrationMojo {
     @Parameter(property = "importFile", required = false)
     private String importFile;
 
+    @Parameter(property = "basedir")
+    private String projectDirectory;
+
     // Below for 'copy-resources' functionality
     @Parameter( defaultValue = "${project}", readonly = true, required = true )
     protected MavenProject project;
@@ -53,7 +56,7 @@ public class IntegrationImportMojo extends AbstractIntegrationMojo {
             Integration ii = new Integration(integrationName, integrationVersion, baseUrl, icsUser, icsPassword);
             ii.setLog(getLog());
             if (importFile == null || importFile.length() < 1) {
-                importFile = "target/" + integrationName + "_" + integrationVersion + ".iar";
+                importFile = projectDirectory + "target/" + integrationName + "_" + integrationVersion + ".iar";
             }
             ii.importIntegration(importFile);
 

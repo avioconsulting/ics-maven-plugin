@@ -23,6 +23,11 @@ public class IntegrationExportMojo extends AbstractIntegrationMojo {
     @Parameter(property = "overwrite", defaultValue = "false")
     private boolean overwrite;
 
+
+    @Parameter(property = "basedir")
+    private String projectDirectory;
+
+
     @Override
     public void execute() throws MojoExecutionException, MojoFailureException {
         checkEnvProperties();
@@ -42,7 +47,7 @@ public class IntegrationExportMojo extends AbstractIntegrationMojo {
                 }
                 Integration ii = new Integration(integrationName, integrationVersion, baseUrl, icsUser, icsPassword);
                 ii.setLog(getLog());
-                ii.exportIntegration(doExpand, cleanFirst);
+                ii.exportIntegration(doExpand, cleanFirst, projectDirectory);
             } else {
                 getLog().info("Exporting connection " + connection + " from " + baseUrl);
                 // Connection Export

@@ -37,7 +37,7 @@ public class Integration {
 
     public static final String STATUS_NOT_FOUND = "HTTP 404 Not Found";
     public static final String STATUS_ACTIVATED = "ACTIVATED";
-    public static final String EXPAND_DIR = "target/iar";
+    public static final String EXPAND_DIR = "/target/iar";
 
     private static final Integer BYTE_SIZE = 2048;
 
@@ -175,7 +175,7 @@ public class Integration {
      *
      * @throws IOException
      */
-    public void exportIntegration(final Boolean expand, final Boolean cleanFirst) throws IOException {
+    public void exportIntegration(final Boolean expand, final Boolean cleanFirst, String basedir) throws IOException {
         getLog().info("[Integration.exportIntegration] Starting");
         String exportFilename = getName() + "_" + getVersion() + ".iar";
 
@@ -183,12 +183,12 @@ public class Integration {
         params.put("id", getName() + "|" + getVersion());
 
         ResponseEntity<String> res = util.invokeService(EXPORT_URL, HttpMethod.GET, null, params, null);
-        final String filename = "target/" + exportFilename;
+        final String filename = basedir + "/target/" + exportFilename;
         writeFile(filename, res.getBody());
 
         if (expand) {
-            expandIar(filename, cleanFirst);
-            iarToProjectStructure(EXPAND_DIR);
+            expandIar(filename, cleanFirst, basedir);
+            iarToProjectStructure(basedir + EXPAND_DIR, basedir);
         } else {
             getLog().info("[Integration.exportIntegration] Integration exported to target/" + exportFilename);
         }
@@ -214,7 +214,7 @@ public class Integration {
      * @param cleanFirst        Boolean to remove exisiting folders before expansion
      * @throws IOException
      */
-    private void expandIar(final String fileZip, final Boolean cleanFirst) throws IOException {
+    private void expandIar(final String fileZip, final Boolean cleanFirst, final String basedir) throws IOException {
         getLog().info("[Integration.expandIar] Decompression for " + fileZip + " has commenced.");
 
         if (cleanFirst) {
@@ -223,20 +223,22 @@ public class Integration {
             // src/main/resources/lookups
             // src/main/resources/schedule
             getLog().info("[Integration.expandIar] all src directories (except config) are being deleted before expanding current export.");
-            removeDir(new File("src/main/iar"));
-            removeDir(new File("src/main/resources/connections"));
-            removeDir(new File("src/main/resources/lookups"));
-            removeDir(new File("src/main/resources/schedule"));
+            removeDir(new File(basedir + "src/main/iar"));
+            removeDir(new File(basedir + "src/main/resources/connections"));
+            removeDir(new File(basedir + "src/main/resources/lookups"));
+            removeDir(new File(basedir + "src/main/resources/schedule"));
         }
 
         byte[] buffer = new byte[BYTE_SIZE];
+
         ZipInputStream zis = new ZipInputStream(new FileInputStream(fileZip));
+        getLog().info("ExpandIAR: available: " + zis.available());
         ZipEntry zipEntry = zis.getNextEntry();
         while (zipEntry != null) {
             String fileName = zipEntry.getName();
 
-            getLog().info("[Integration.expandIar] writing " + EXPAND_DIR + "/" + fileName);
-            File newFile = new File(EXPAND_DIR + "/" + fileName);
+            getLog().debug("[Integration.expandIar] writing " + basedir +  EXPAND_DIR + "/" + fileName);
+            File newFile = new File(basedir + EXPAND_DIR + "/" + fileName);
 
             new File(newFile.getParent()).mkdirs();
 
@@ -263,7 +265,7 @@ public class Integration {
      * @param baseLocation          String location of the export
      * @throws IOException
      */
-    private void iarToProjectStructure(String baseLocation) throws IOException {
+    private void iarToProjectStructure(String baseLocation, String basedir) throws IOException {
 
         getLog().info("[Integration.iarToProjectStructure] Starting, copying from " + baseLocation);
         if(baseLocation == null || baseLocation.length()<1){
@@ -271,10 +273,10 @@ public class Integration {
             baseLocation = ".";
         }
 
-        copyDirectory(new File(baseLocation + "/icspackage/appinstances"), "src/main/resources/connections");
-        copyDirectory(new File(baseLocation + "/icspackage/dvms"), "src/main/resources/lookups");
-        copyDirectory(new File(baseLocation + "/icspackage/schedule"), "src/main/resources/schedule");
-        copyDirectory(new File(baseLocation + "/icspackage/project/" + getName() + "_" + getVersion()), "src/main/iar");
+        copyDirectory(new File(baseLocation + "/icspackage/appinstances"), basedir + "/src/main/resources/connections");
+        copyDirectory(new File(baseLocation + "/icspackage/dvms"), basedir + "/src/main/resources/lookups");
+        copyDirectory(new File(baseLocation + "/icspackage/schedule"), basedir + "/src/main/resources/schedule");
+        copyDirectory(new File(baseLocation + "/icspackage/project/" + getName() + "_" + getVersion()), basedir + "/src/main/iar");
 
         getLog().info("[Integration.iarToProjectStructure] Finished");
 
@@ -285,9 +287,9 @@ public class Integration {
      *
      * @throws IOException
      */
-    public void packageProject() throws IOException {
-        projectToIarStructure(EXPAND_DIR);
-        buildIar(EXPAND_DIR, "target");
+    public void packageProject(String basedir) throws IOException {
+        projectToIarStructure(basedir + EXPAND_DIR, basedir);
+        buildIar(basedir + EXPAND_DIR, basedir + "/target");
     }
 
     private void buildIar(String sourceLocation, String destLocation) throws IOException {
@@ -354,17 +356,17 @@ public class Integration {
      * @param destLocation          String location for the iar structure
      * @throws IOException
      */
-    private void projectToIarStructure(String destLocation) throws IOException {
+    private void projectToIarStructure(String destLocation, String basedir) throws IOException {
         getLog().info("[Integration.projectToIarStructure] Starting");
 
         if(destLocation == null || destLocation.length()<1){
             // dest location must be something, else it'll be copied to root.
             destLocation = ".";
         }
-        copyDirectory(new File("src/main/resources/connections"),destLocation + "/icspackage/appinstances");
-        copyDirectory(new File("src/main/resources/lookups"),destLocation + "/icspackage/dvms");
-        copyDirectory(new File("src/main/resources/schedule"),destLocation + "/icspackage/schedule");
-        copyDirectory(new File("src/main/iar"),destLocation + "/icspackage/project/" + getName() + "_" + getVersion());
+        copyDirectory(new File(basedir + "/src/main/resources/connections"),destLocation + "/icspackage/appinstances");
+        copyDirectory(new File(basedir + "/src/main/resources/lookups"),destLocation + "/icspackage/dvms");
+        copyDirectory(new File(basedir + "/src/main/resources/schedule"),destLocation + "/icspackage/schedule");
+        copyDirectory(new File(basedir + "/src/main/iar"),destLocation + "/icspackage/project/" + getName() + "_" + getVersion());
 
         getLog().info("[Integration.projectToIarStructure] Complete");
     }
@@ -407,6 +409,18 @@ public class Integration {
         DataOutputStream dos = new DataOutputStream(fos);
         dos.writeBytes(contents);
 
+        dos.flush();
+        dos.close();
+        fos.flush();
+        fos.close();
+
+        // write goes too fast, and immediately tries to expand the file
+        // causing a file not found error.
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
