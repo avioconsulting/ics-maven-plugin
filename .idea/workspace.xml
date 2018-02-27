@@ -2,11 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2d510b43-daeb-4e31-84b1-3b5878359061" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_oracle_weblogic_javax_javaee_api_12_2_1_2_0.xml" afterPath="" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/Integration.java" afterPath="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/Integration.java" />
+      <change beforePath="$PROJECT_DIR$/ics-maven-plugin.iml" afterPath="$PROJECT_DIR$/ics-maven-plugin.iml" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/AbstractIntegrationMojo.java" afterPath="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/AbstractIntegrationMojo.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/IntegrationExportMojo.java" afterPath="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/IntegrationExportMojo.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/IntegrationImportMojo.java" afterPath="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/IntegrationImportMojo.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/IntegrationPackageMojo.java" afterPath="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/IntegrationPackageMojo.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -26,11 +28,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="IntegrationImportMojo.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="IntegrationImportMojo.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/IntegrationImportMojo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="574">
-              <caret line="60" column="45" lean-forward="true" selection-start-line="60" selection-start-column="45" selection-end-line="60" selection-end-column="45" />
+            <state relative-caret-position="84">
+              <caret line="25" column="62" lean-forward="false" selection-start-line="25" selection-start-column="62" selection-end-line="25" selection-end-column="62" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="308">
+              <caret line="79" column="49" lean-forward="true" selection-start-line="79" selection-start-column="49" selection-end-line="79" selection-end-column="49" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AbstractIntegrationMojo.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/AbstractIntegrationMojo.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="294">
+              <caret line="24" column="110" lean-forward="false" selection-start-line="24" selection-start-column="110" selection-end-line="24" selection-end-column="110" />
               <folding />
             </state>
           </provider>
@@ -39,14 +61,14 @@
       <file leaf-file-name="IntegrationExportMojo.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/IntegrationExportMojo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="30" column="13" lean-forward="true" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
+            <state relative-caret-position="284">
+              <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Integration.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Integration.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/Integration.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="104">
@@ -59,6 +81,16 @@
                 <element signature="e#21822#21823#0" expanded="true" />
                 <element signature="e#21849#21850#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ConnectionUpdateMojo.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/ConnectionUpdateMojo.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="56">
+              <caret line="9" column="55" lean-forward="false" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="55" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -96,6 +128,7 @@
       <find>export</find>
       <find>packag</find>
       <find>write</find>
+      <find>iarToProjectStructure</find>
     </findStrings>
     <replaceStrings>
       <replace>IcsConnection</replace>
@@ -118,7 +151,6 @@
       <list>
         <option value="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/IcsPackageMojo.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/IcsIntegrationPackageMojo.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/RenameMojo.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/IcsIntegrationExportMojo.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/IcsIntegrationImportMojo.java" />
@@ -127,7 +159,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/IntegrationExplodeMojo.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/IntegrationExpandMojo.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/CleanMojo.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/AbstractIntegrationMojo.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/IcsServices.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/TestingMojo.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/ConnectionUpdateMojo.java" />
@@ -138,10 +169,12 @@
         <option value="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/util/RestUtilities.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/Connection.java" />
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/IntegrationExportMojo.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/IntegrationPackageMojo.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/IntegrationImportMojo.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/Integration.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/IntegrationExportMojo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/AbstractIntegrationMojo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/IntegrationImportMojo.java" />
       </list>
     </option>
   </component>
@@ -154,7 +187,7 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="2126" />
-    <option name="y" value="84" />
+    <option name="y" value="83" />
     <option name="width" value="1536" />
     <option name="height" value="939" />
   </component>
@@ -407,7 +440,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="2126" y="84" width="1536" height="939" extended-state="0" />
+    <frame x="2126" y="83" width="1536" height="939" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -512,6 +545,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="56">
           <caret line="9" column="55" lean-forward="false" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="55" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -690,14 +724,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/RenameMojo.java" />
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="588">
-          <caret line="42" column="17" lean-forward="true" selection-start-line="42" selection-start-column="17" selection-end-line="42" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/IntegrationExpandMojo.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/CleanMojo.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/IcsServices.java" />
@@ -706,14 +732,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="224">
           <caret line="16" column="49" lean-forward="false" selection-start-line="16" selection-start-column="49" selection-end-line="16" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/AbstractIntegrationMojo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="26" column="9" lean-forward="true" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="9" />
           <folding />
         </state>
       </provider>
@@ -729,13 +747,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="22" column="12" lean-forward="false" selection-start-line="22" selection-start-column="12" selection-end-line="22" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/ConnectionUpdateMojo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="56">
-          <caret line="9" column="55" lean-forward="false" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="55" />
         </state>
       </provider>
     </entry>
@@ -798,22 +809,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/IntegrationExportMojo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="30" column="13" lean-forward="true" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/IntegrationImportMojo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="574">
-          <caret line="60" column="45" lean-forward="true" selection-start-line="60" selection-start-column="45" selection-end-line="60" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/Integration.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="104">
@@ -826,6 +821,46 @@
             <element signature="e#21822#21823#0" expanded="true" />
             <element signature="e#21849#21850#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/ConnectionUpdateMojo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="56">
+          <caret line="9" column="55" lean-forward="false" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="79" column="49" lean-forward="true" selection-start-line="79" selection-start-column="49" selection-end-line="79" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/IntegrationExportMojo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/AbstractIntegrationMojo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="24" column="110" lean-forward="false" selection-start-line="24" selection-start-column="110" selection-end-line="24" selection-end-column="110" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/IntegrationImportMojo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="25" column="62" lean-forward="false" selection-start-line="25" selection-start-column="62" selection-end-line="25" selection-end-column="62" />
+          <folding />
         </state>
       </provider>
     </entry>

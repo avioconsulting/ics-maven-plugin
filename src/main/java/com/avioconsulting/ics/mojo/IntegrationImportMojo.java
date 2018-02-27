@@ -23,17 +23,12 @@ import java.util.Map;
 
 @Mojo(name = "import", requiresProject = true)
 public class IntegrationImportMojo extends AbstractIntegrationMojo {
-    @Parameter(property = "enableTrace", defaultValue = "true")
+    @Parameter(property = "enableTrace", defaultValue = "false")
     private boolean enableTrace;
     @Parameter(property = "importFile", required = false)
     private String importFile;
 
-    @Parameter(property = "basedir")
-    private String projectDirectory;
-
     // Below for 'copy-resources' functionality
-    @Parameter( defaultValue = "${project}", readonly = true, required = true )
-    protected MavenProject project;
 
     @Parameter( defaultValue = "${session}", readonly = true, required = true )
     protected MavenSession session;
@@ -51,7 +46,7 @@ public class IntegrationImportMojo extends AbstractIntegrationMojo {
     public void execute() throws MojoExecutionException, MojoFailureException {
         getLog().info("Importing integration " + integrationName + "_" + integrationVersion + " to " + baseUrl);
         checkEnvProperties();
-
+        String projectDirectory = project.getBasedir().getAbsolutePath();
         try {
             Integration ii = new Integration(integrationName, integrationVersion, baseUrl, icsUser, icsPassword);
             ii.setLog(getLog());
@@ -65,7 +60,8 @@ public class IntegrationImportMojo extends AbstractIntegrationMojo {
                 Connection c = conns.get(key);
                 String status = c.getStatus();
                 getLog().info("Connection " + key + " has status " + status);
-                copyConfigFiles("src/main/resources/config", "target/connections");
+                copyConfigFiles(projectDirectory + connectionConfigDir, projectDirectory + "/target/connections");
+//                copyConfigFiles(projectDirectory + "/src/main/resources/config", projectDirectory + "/target/connections");
                 c.updateConnection();
             }
 

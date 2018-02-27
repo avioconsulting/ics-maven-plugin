@@ -23,14 +23,10 @@ public class IntegrationExportMojo extends AbstractIntegrationMojo {
     @Parameter(property = "overwrite", defaultValue = "false")
     private boolean overwrite;
 
-
-    @Parameter(property = "basedir")
-    private String projectDirectory;
-
-
     @Override
     public void execute() throws MojoExecutionException, MojoFailureException {
         checkEnvProperties();
+        String projectDirectory = project.getBasedir().getAbsolutePath();
 
         if (!doExport) {
             getLog().info("Skipping export, use -Dexport=true to enable it");

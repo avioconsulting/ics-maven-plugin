@@ -92,11 +92,11 @@
         <artifactId>httpcore</artifactId>
         <version>4.4.5</version>
     </dependency>
-        <dependency>
-            <groupId>com.oracle.weblogic</groupId>
-            <artifactId>javax.javaee-api</artifactId>
-            <version>12.2.1-2-0</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>com.oracle.weblogic</groupId>-->
+            <!--<artifactId>javax.javaee-api</artifactId>-->
+            <!--<version>12.2.1-2-0</version>-->
+        <!--</dependency>-->
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>

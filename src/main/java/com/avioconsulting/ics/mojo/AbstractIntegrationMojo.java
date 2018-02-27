@@ -3,6 +3,7 @@ package com.avioconsulting.ics.mojo;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugins.annotations.Parameter;
+import org.apache.maven.project.MavenProject;
 
 abstract class AbstractIntegrationMojo extends AbstractMojo {
     @Parameter(property = "ics.user", required = false)
@@ -15,6 +16,14 @@ abstract class AbstractIntegrationMojo extends AbstractMojo {
     protected String integrationName;
     @Parameter(property = "ics.integration.version", required = true)
     protected String integrationVersion;
+
+
+
+    @Parameter( defaultValue = "${project}", readonly = true, required = true )
+    protected MavenProject project;
+
+    @Parameter(property = "connection.config.dir", required = true, defaultValue = "/src/main/resources/config")
+    protected String connectionConfigDir;
 
     protected void checkEnvProperties() throws MojoExecutionException{
         if(icsUser == null || icsUser.length() < 1 ||
