@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
-  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_6">
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_7">
     <output url="file://$MODULE_DIR$/target/classes" />
     <output-test url="file://$MODULE_DIR$/target/test-classes" />
     <content url="file://$MODULE_DIR$">
@@ -62,13 +62,23 @@
     <orderEntry type="library" name="Maven: org.apache.maven:maven-project:2.2.1" level="project" />
     <orderEntry type="library" name="Maven: org.apache.maven:maven-profile:2.2.1" level="project" />
     <orderEntry type="library" name="Maven: org.apache.maven:maven-artifact-manager:2.2.1" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.maven.wagon:wagon-provider-api:1.0-beta-6" level="project" />
     <orderEntry type="library" name="Maven: backport-util-concurrent:backport-util-concurrent:3.1" level="project" />
     <orderEntry type="library" name="Maven: org.apache.maven:maven-plugin-registry:2.2.1" level="project" />
-    <orderEntry type="library" name="Maven: org.codehaus.plexus:plexus-container-default:1.0-alpha-9-stable-1" level="project" />
-    <orderEntry type="library" name="Maven: classworlds:classworlds:1.1-alpha-2" level="project" />
     <orderEntry type="library" name="Maven: org.apache.maven.shared:maven-shared-utils:0.6" level="project" />
     <orderEntry type="library" name="Maven: com.google.code.findbugs:jsr305:2.0.1" level="project" />
     <orderEntry type="library" name="Maven: org.sonatype.plexus:plexus-build-api:0.0.4" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.maven.plugins:maven-assembly-plugin:2.4.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.maven.shared:maven-common-artifact-filters:1.4" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.plexus:plexus-archiver:2.4.4" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.commons:commons-compress:1.5" level="project" />
+    <orderEntry type="library" name="Maven: org.tukaani:xz:1.2" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.maven.shared:file-management:1.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.maven.shared:maven-shared-io:1.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.maven.wagon:wagon-provider-api:1.0-alpha-6" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.plexus:plexus-io:2.0.9" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.maven:maven-archiver:2.5" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.plexus:plexus-container-default:1.0-alpha-9-stable-1" level="project" />
+    <orderEntry type="library" name="Maven: classworlds:classworlds:1.1-alpha-2" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.maven.shared:maven-repository-builder:1.0-alpha-2" level="project" />
   </component>
 </module>

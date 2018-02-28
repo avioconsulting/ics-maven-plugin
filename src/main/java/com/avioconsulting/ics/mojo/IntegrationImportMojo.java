@@ -9,7 +9,6 @@ import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugins.annotations.Component;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
-import org.apache.maven.project.MavenProject;
 import org.apache.maven.shared.filtering.MavenFilteringException;
 import org.apache.maven.shared.filtering.MavenResourcesExecution;
 import org.apache.maven.shared.filtering.MavenResourcesFiltering;
@@ -51,7 +50,7 @@ public class IntegrationImportMojo extends AbstractIntegrationMojo {
             Integration ii = new Integration(integrationName, integrationVersion, baseUrl, icsUser, icsPassword);
             ii.setLog(getLog());
             if (importFile == null || importFile.length() < 1) {
-                importFile = projectDirectory + "target/" + integrationName + "_" + integrationVersion + ".iar";
+                importFile = projectDirectory + "/target/" + integrationName + "_" + integrationVersion + ".iar";
             }
             ii.importIntegration(importFile);
 
@@ -72,6 +71,8 @@ public class IntegrationImportMojo extends AbstractIntegrationMojo {
         }
 
     }
+
+
 
     private void copyConfigFiles(String sourceDirectory, String destinationDirectory) throws MavenFilteringException {
         // Build resources

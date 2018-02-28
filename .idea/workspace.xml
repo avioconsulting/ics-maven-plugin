@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2d510b43-daeb-4e31-84b1-3b5878359061" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_oracle_weblogic_javax_javaee_api_12_2_1_2_0.xml" afterPath="" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_wagon_wagon_provider_api_1_0_beta_6.xml" afterPath="" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/ics-maven-plugin.iml" afterPath="$PROJECT_DIR$/ics-maven-plugin.iml" />
       <change beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/AbstractIntegrationMojo.java" afterPath="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/AbstractIntegrationMojo.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/IntegrationExportMojo.java" afterPath="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/IntegrationExportMojo.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/Integration.java" afterPath="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/Integration.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/IntegrationImportMojo.java" afterPath="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/IntegrationImportMojo.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -28,11 +29,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="IntegrationImportMojo.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="IntegrationImportMojo.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/IntegrationImportMojo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="25" column="62" lean-forward="false" selection-start-line="25" selection-start-column="62" selection-end-line="25" selection-end-column="62" />
+            <state relative-caret-position="-176">
+              <caret line="16" column="20" lean-forward="false" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Integration.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/Integration.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="244">
+              <caret line="309" column="54" lean-forward="false" selection-start-line="309" selection-start-column="54" selection-end-line="309" selection-end-column="54" />
               <folding />
             </state>
           </provider>
@@ -41,65 +52,8 @@
       <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="79" column="49" lean-forward="true" selection-start-line="79" selection-start-column="49" selection-end-line="79" selection-end-column="49" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AbstractIntegrationMojo.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/AbstractIntegrationMojo.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="24" column="110" lean-forward="false" selection-start-line="24" selection-start-column="110" selection-end-line="24" selection-end-column="110" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IntegrationExportMojo.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/IntegrationExportMojo.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="284">
-              <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Integration.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/Integration.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="104">
-              <caret line="190" column="44" lean-forward="false" selection-start-line="190" selection-start-column="44" selection-end-line="190" selection-end-column="44" />
-              <folding>
-                <element signature="e#21611#21612#0" expanded="true" />
-                <element signature="e#21638#21639#0" expanded="true" />
-                <element signature="e#21754#21755#0" expanded="true" />
-                <element signature="e#21784#21785#0" expanded="true" />
-                <element signature="e#21822#21823#0" expanded="true" />
-                <element signature="e#21849#21850#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ConnectionUpdateMojo.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/ConnectionUpdateMojo.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="56">
-              <caret line="9" column="55" lean-forward="false" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="55" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IntegrationPackageMojo.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/IntegrationPackageMojo.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="24" column="46" lean-forward="false" selection-start-line="24" selection-start-column="46" selection-end-line="24" selection-end-column="46" />
+            <state relative-caret-position="454">
+              <caret line="109" column="0" lean-forward="false" selection-start-line="109" selection-start-column="0" selection-end-line="113" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -128,7 +82,11 @@
       <find>export</find>
       <find>packag</find>
       <find>write</find>
+      <find>log</find>
       <find>iarToProjectStructure</find>
+      <find>temp</find>
+      <find>containerDescriptorHandlers</find>
+      <find>working</find>
     </findStrings>
     <replaceStrings>
       <replace>IcsConnection</replace>
@@ -160,7 +118,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/IntegrationExpandMojo.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/CleanMojo.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/IcsServices.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/TestingMojo.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/ConnectionUpdateMojo.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/IntegrationDeleteMojo.java" />
         <option value="$PROJECT_DIR$/src/main/resources/META-INF/plexus/components.xml" />
@@ -170,15 +127,22 @@
         <option value="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/Connection.java" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/IntegrationPackageMojo.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/Integration.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/IntegrationExportMojo.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/AbstractIntegrationMojo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/IntegrationAssembler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/TestingMojo.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/IntegrationImportMojo.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/Integration.java" />
       </list>
     </option>
   </component>
   <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="outputLevel" value="DEBUG" />
+      </MavenGeneralSettings>
+    </option>
     <option name="importingSettings">
       <MavenImportingSettings>
         <option name="importAutomatically" value="true" />
@@ -186,9 +150,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="2126" />
-    <option name="y" value="83" />
-    <option name="width" value="1536" />
+    <option name="x" value="2096" />
+    <option name="y" value="126" />
+    <option name="width" value="1678" />
     <option name="height" value="939" />
   </component>
   <component name="ProjectView">
@@ -249,30 +213,6 @@
               <item name="ics" type="462c0819:PsiDirectoryNode" />
               <item name="mojo" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="ics-maven-plugin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ics-maven-plugin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="ics" type="462c0819:PsiDirectoryNode" />
-              <item name="util" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ics-maven-plugin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ics-maven-plugin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ics-maven-plugin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ics-maven-plugin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="plexus" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -282,9 +222,9 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="org.infernus.idea.checkstyle.CheckStyleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="project.propDebugger" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///home/kevin/code/avio/maven-plugins/ics-maven-plugin/src/main/java/com/avioconsulting/ics/Integration.java" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../maven-assembly-plugin-3.1.0" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -298,7 +238,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Integration">
+  <component name="RunManager" selected="Application.TestingMojo">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -333,6 +273,44 @@
         </pattern>
       </extension>
       <option name="MAIN_CLASS_NAME" value="com.avioconsulting.ics.Integration" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="ics-maven-plugin" />
+      <envs />
+    </configuration>
+    <configuration name="IntegrationImportMojo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.avioconsulting.ics.mojo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="com.avioconsulting.ics.mojo.IntegrationImportMojo" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="ics-maven-plugin" />
+      <envs />
+    </configuration>
+    <configuration name="TestingMojo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.avioconsulting.ics.mojo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="com.avioconsulting.ics.mojo.TestingMojo" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -415,14 +393,18 @@
     <configuration name="&lt;template&gt;" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" default="true" selected="false">
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
     </configuration>
-    <list size="2">
+    <list size="4">
       <item index="0" class="java.lang.String" itemvalue="Application.IcsServices" />
       <item index="1" class="java.lang.String" itemvalue="Application.Integration" />
+      <item index="2" class="java.lang.String" itemvalue="Application.IntegrationImportMojo" />
+      <item index="3" class="java.lang.String" itemvalue="Application.TestingMojo" />
     </list>
     <recent_temporary>
-      <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="Application.Integration" />
-        <item index="1" class="java.lang.String" itemvalue="Application.IcsServices" />
+      <list size="4">
+        <item index="0" class="java.lang.String" itemvalue="Application.TestingMojo" />
+        <item index="1" class="java.lang.String" itemvalue="Application.IntegrationImportMojo" />
+        <item index="2" class="java.lang.String" itemvalue="Application.Integration" />
+        <item index="3" class="java.lang.String" itemvalue="Application.IcsServices" />
       </list>
     </recent_temporary>
   </component>
@@ -440,25 +422,25 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="2126" y="83" width="1536" height="939" extended-state="0" />
+    <frame x="2096" y="126" width="1678" height="939" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286052" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21276596" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21276596" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="CheckStyle" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20525451" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2591146" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23718713" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286052" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -474,100 +456,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/util/RestUtilities.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1442">
-          <caret line="119" column="24" lean-forward="false" selection-start-line="119" selection-start-column="24" selection-end-line="119" selection-end-column="24" />
-          <folding>
-            <element signature="e#6202#6203#0" expanded="false" />
-            <element signature="e#6232#6233#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/IntegrationPackageMojo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="18" column="30" lean-forward="false" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/IntegrationActivateMojo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="25" column="26" lean-forward="false" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/IntegrationDeactivateMojo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="18" column="26" lean-forward="false" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/IntegrationDeleteMojo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="56">
-          <caret line="8" column="46" lean-forward="false" selection-start-line="8" selection-start-column="46" selection-end-line="8" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/Connection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1666">
-          <caret line="132" column="38" lean-forward="false" selection-start-line="132" selection-start-column="28" selection-end-line="132" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="980">
-          <caret line="70" column="18" lean-forward="true" selection-start-line="70" selection-start-column="18" selection-end-line="70" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/IntegrationImportMojo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="64" column="83" lean-forward="false" selection-start-line="64" selection-start-column="83" selection-end-line="64" selection-end-column="83" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/ConnectionUpdateMojo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="56">
-          <caret line="9" column="55" lean-forward="false" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/IntegrationExportMojo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="490">
-          <caret line="42" column="56" lean-forward="false" selection-start-line="42" selection-start-column="56" selection-end-line="42" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/util/RestUtilities.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1442">
-          <caret line="119" column="24" lean-forward="false" selection-start-line="119" selection-start-column="24" selection-end-line="119" selection-end-column="24" />
-          <folding>
-            <element signature="e#6202#6203#0" expanded="false" />
-            <element signature="e#6232#6233#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/IntegrationPackageMojo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
@@ -727,7 +615,6 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/IntegrationExpandMojo.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/CleanMojo.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/IcsServices.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/TestingMojo.java" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/plexus/components.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="224">
@@ -809,21 +696,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/Integration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="190" column="44" lean-forward="false" selection-start-line="190" selection-start-column="44" selection-end-line="190" selection-end-column="44" />
-          <folding>
-            <element signature="e#21611#21612#0" expanded="true" />
-            <element signature="e#21638#21639#0" expanded="true" />
-            <element signature="e#21754#21755#0" expanded="true" />
-            <element signature="e#21784#21785#0" expanded="true" />
-            <element signature="e#21822#21823#0" expanded="true" />
-            <element signature="e#21849#21850#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/ConnectionUpdateMojo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="56">
@@ -832,18 +704,64 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/maven/plugins/maven-assembly-plugin/2.4.1/maven-assembly-plugin-2.4.1.jar!/org/apache/maven/plugin/assembly/model/FileSet.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="79" column="49" lean-forward="true" selection-start-line="79" selection-start-column="49" selection-end-line="79" selection-end-column="49" />
-          <folding />
+        <state relative-caret-position="42">
+          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding>
+            <marker date="1481675084010" expanded="false" signature="0:104" ph="/.../" />
+            <marker date="1481675084010" expanded="false" signature="162:234" ph="..." />
+            <marker date="1481675084010" expanded="true" signature="620:627" ph="{}" />
+            <marker date="1481675084010" expanded="false" signature="670:681" ph=" { " />
+            <marker date="1481675084010" expanded="false" signature="712:718" ph=" }" />
+            <marker date="1481675084010" expanded="false" signature="761:772" ph=" { " />
+            <marker date="1481675084010" expanded="false" signature="803:809" ph=" }" />
+            <marker date="1481675084010" expanded="false" signature="843:854" ph=" { " />
+            <marker date="1481675084010" expanded="false" signature="876:882" ph=" }" />
+            <marker date="1481675084010" expanded="false" signature="920:931" ph=" { " />
+            <marker date="1481675084010" expanded="false" signature="957:963" ph=" }" />
+            <marker date="1481675084010" expanded="true" signature="1003:1133" ph="{...}" />
+            <marker date="1481675084010" expanded="false" signature="1166:1177" ph=" { " />
+            <marker date="1481675084010" expanded="false" signature="1198:1204" ph=" }" />
+            <marker date="1481675084010" expanded="true" signature="1244:1374" ph="{...}" />
+            <marker date="1481675084010" expanded="false" signature="1409:1420" ph=" { " />
+            <marker date="1481675084010" expanded="false" signature="1443:1449" ph=" }" />
+            <marker date="1481675084010" expanded="false" signature="1489:1500" ph=" { " />
+            <marker date="1481675084010" expanded="false" signature="1528:1534" ph=" }" />
+            <marker date="1481675084010" expanded="false" signature="1567:1578" ph=" { " />
+            <marker date="1481675084010" expanded="false" signature="1599:1605" ph=" }" />
+            <marker date="1481675084010" expanded="false" signature="1648:1659" ph=" { " />
+            <marker date="1481675084010" expanded="false" signature="1690:1696" ph=" }" />
+            <marker date="1481675084010" expanded="false" signature="1742:1753" ph=" { " />
+            <marker date="1481675084010" expanded="false" signature="1787:1793" ph=" }" />
+            <marker date="1481675084010" expanded="false" signature="1839:1850" ph=" { " />
+            <marker date="1481675084010" expanded="false" signature="1884:1890" ph=" }" />
+            <marker date="1481675084010" expanded="false" signature="1938:1949" ph=" { " />
+            <marker date="1481675084010" expanded="false" signature="1976:1982" ph=" }" />
+            <marker date="1481675084010" expanded="false" signature="2038:2049" ph=" { " />
+            <marker date="1481675084010" expanded="false" signature="2084:2090" ph=" }" />
+            <marker date="1481675084010" expanded="false" signature="2142:2153" ph=" { " />
+            <marker date="1481675084010" expanded="false" signature="2178:2184" ph=" }" />
+            <marker date="1481675084010" expanded="false" signature="2230:2241" ph=" { " />
+            <marker date="1481675084010" expanded="false" signature="2266:2272" ph=" }" />
+            <marker date="1481675084010" expanded="false" signature="2319:2330" ph=" { " />
+            <marker date="1481675084010" expanded="false" signature="2355:2361" ph=" }" />
+            <marker date="1481675084010" expanded="false" signature="2413:2424" ph=" { " />
+            <marker date="1481675084010" expanded="false" signature="2449:2455" ph=" }" />
+            <marker date="1481675084010" expanded="false" signature="2505:2516" ph=" { " />
+            <marker date="1481675084010" expanded="false" signature="2545:2551" ph=" }" />
+            <marker date="1481675084010" expanded="false" signature="2611:2622" ph=" { " />
+            <marker date="1481675084010" expanded="false" signature="2661:2667" ph=" }" />
+            <marker date="1481675084010" expanded="false" signature="2734:2745" ph=" { " />
+            <marker date="1481675084010" expanded="false" signature="2790:2796" ph=" }" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/IntegrationExportMojo.java">
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+        <state relative-caret-position="198">
+          <caret line="18" column="29" lean-forward="false" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="29" />
           <folding />
         </state>
       </provider>
@@ -856,10 +774,325 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/IntegrationImportMojo.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/IntegrationExportMojo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/maven/plugins/maven-assembly-plugin/2.4.1/maven-assembly-plugin-2.4.1-sources.jar!/org/apache/maven/plugin/assembly/model/Assembly.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="27" column="13" lean-forward="false" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/IntegrationAssembler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1365">
+          <caret line="45" column="38" lean-forward="false" selection-start-line="45" selection-start-column="38" selection-end-line="45" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/maven/plugins/maven-assembly-plugin/2.4.1/maven-assembly-plugin-2.4.1.jar!/org/apache/maven/plugin/assembly/model/Assembly.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-168">
+          <caret line="30" column="39" lean-forward="false" selection-start-line="30" selection-start-column="39" selection-end-line="30" selection-end-column="39" />
+          <folding>
+            <marker date="1481675084010" expanded="false" signature="0:104" ph="/.../" />
+            <marker date="1481675084010" expanded="false" signature="162:234" ph="..." />
+            <marker date="1481675084010" expanded="true" signature="869:876" ph="{}" />
+            <marker date="1481675084010" expanded="false" signature="931:942" ph=" { " />
+            <marker date="1481675084010" expanded="false" signature="985:991" ph=" }" />
+            <marker date="1481675084010" expanded="true" signature="1106:1198" ph="{...}" />
+            <marker date="1481675084010" expanded="false" signature="1261:1272" ph=" { " />
+            <marker date="1481675084010" expanded="false" signature="1316:1322" ph=" }" />
+            <marker date="1481675084010" expanded="false" signature="1366:1377" ph=" { " />
+            <marker date="1481675084010" expanded="false" signature="1407:1413" ph=" }" />
+            <marker date="1481675084010" expanded="false" signature="1458:1469" ph=" { " />
+            <marker date="1481675084010" expanded="false" signature="1501:1507" ph=" }" />
+            <marker date="1481675084010" expanded="false" signature="1549:1560" ph=" { " />
+            <marker date="1481675084010" expanded="false" signature="1590:1596" ph=" }" />
+            <marker date="1481675084010" expanded="false" signature="1647:1658" ph=" { " />
+            <marker date="1481675084010" expanded="false" signature="1694:1700" ph=" }" />
+            <marker date="1481675084010" expanded="false" signature="1754:1765" ph=" { " />
+            <marker date="1481675084010" expanded="false" signature="1804:1810" ph=" }" />
+            <marker date="1481675084010" expanded="false" signature="1848:1859" ph=" { " />
+            <marker date="1481675084010" expanded="false" signature="1885:1891" ph=" }" />
+            <marker date="1481675084010" expanded="true" signature="1943:2109" ph="{...}" />
+            <marker date="1481675084010" expanded="true" signature="2194:2381" ph="{...}" />
+            <marker date="1481675084010" expanded="true" signature="2434:2582" ph="{...}" />
+            <marker date="1481675084010" expanded="true" signature="2623:2753" ph="{...}" />
+            <marker date="1481675084010" expanded="true" signature="2792:2913" ph="{...}" />
+            <marker date="1481675084010" expanded="true" signature="2952:3079" ph="{...}" />
+            <marker date="1481675084010" expanded="false" signature="3106:3117" ph=" { " />
+            <marker date="1481675084010" expanded="false" signature="3132:3138" ph=" }" />
+            <marker date="1481675084010" expanded="false" signature="3176:3187" ph=" { " />
+            <marker date="1481675084010" expanded="false" signature="3213:3219" ph=" }" />
+            <marker date="1481675084010" expanded="true" signature="3264:3400" ph="{...}" />
+            <marker date="1481675084010" expanded="true" signature="3448:3590" ph="{...}" />
+            <marker date="1481675084010" expanded="false" signature="3635:3646" ph=" { " />
+            <marker date="1481675084010" expanded="false" signature="3679:3685" ph=" }" />
+            <marker date="1481675084010" expanded="false" signature="3730:3741" ph=" { " />
+            <marker date="1481675084010" expanded="false" signature="3774:3780" ph=" }" />
+            <marker date="1481675084010" expanded="false" signature="3838:3849" ph=" { " />
+            <marker date="1481675084010" expanded="false" signature="3895:3901" ph=" }" />
+            <marker date="1481675084010" expanded="true" signature="4019:4114" ph="{...}" />
+            <marker date="1481675084010" expanded="false" signature="4180:4191" ph=" { " />
+            <marker date="1481675084010" expanded="false" signature="4238:4244" ph=" }" />
+            <marker date="1481675084010" expanded="false" signature="4291:4302" ph=" { " />
+            <marker date="1481675084010" expanded="false" signature="4335:4341" ph=" }" />
+            <marker date="1481675084010" expanded="false" signature="4389:4400" ph=" { " />
+            <marker date="1481675084010" expanded="false" signature="4435:4441" ph=" }" />
+            <marker date="1481675084010" expanded="false" signature="4486:4497" ph=" { " />
+            <marker date="1481675084010" expanded="false" signature="4530:4536" ph=" }" />
+            <marker date="1481675084010" expanded="false" signature="4590:4601" ph=" { " />
+            <marker date="1481675084010" expanded="false" signature="4640:4646" ph=" }" />
+            <marker date="1481675084010" expanded="false" signature="4703:4714" ph=" { " />
+            <marker date="1481675084010" expanded="false" signature="4756:4762" ph=" }" />
+            <marker date="1481675084010" expanded="false" signature="4818:4829" ph=" { " />
+            <marker date="1481675084010" expanded="false" signature="4864:4870" ph=" }" />
+            <marker date="1481675084010" expanded="true" signature="4947:5012" ph="{...}" />
+            <marker date="1481675084010" expanded="true" signature="5129:5208" ph="{...}" />
+            <marker date="1481675084010" expanded="false" signature="5279:5290" ph=" { " />
+            <marker date="1481675084010" expanded="false" signature="5327:5333" ph=" }" />
+            <marker date="1481675084010" expanded="false" signature="5386:5397" ph=" { " />
+            <marker date="1481675084010" expanded="false" signature="5422:5428" ph=" }" />
+            <marker date="1481675084010" expanded="false" signature="5476:5487" ph=" { " />
+            <marker date="1481675084010" expanded="false" signature="5506:5512" ph=" }" />
+            <marker date="1481675084010" expanded="false" signature="5562:5573" ph=" { " />
+            <marker date="1481675084010" expanded="false" signature="5596:5602" ph=" }" />
+            <marker date="1481675084010" expanded="false" signature="5636:5647" ph=" { " />
+            <marker date="1481675084010" expanded="false" signature="5660:5666" ph=" }" />
+            <marker date="1481675084010" expanded="true" signature="5738:5803" ph="{...}" />
+            <marker date="1481675084010" expanded="true" signature="5875:5940" ph="{...}" />
+            <marker date="1481675084010" expanded="false" signature="5996:6007" ph=" { " />
+            <marker date="1481675084010" expanded="false" signature="6042:6048" ph=" }" />
+            <marker date="1481675084010" expanded="false" signature="6107:6118" ph=" { " />
+            <marker date="1481675084010" expanded="false" signature="6147:6153" ph=" }" />
+            <marker date="1481675084010" expanded="false" signature="6217:6228" ph=" { " />
+            <marker date="1481675084010" expanded="false" signature="6261:6267" ph=" }" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/maven/plugins/maven-assembly-plugin/2.4.1/maven-assembly-plugin-2.4.1.jar!/org/apache/maven/plugin/assembly/archive/DefaultAssemblyArchiver.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="186" column="31" lean-forward="false" selection-start-line="186" selection-start-column="15" selection-end-line="186" selection-end-column="31" />
+          <folding>
+            <marker date="1481675084010" expanded="false" signature="0:104" ph="/.../" />
+            <marker date="1481675084010" expanded="false" signature="164:3543" ph="..." />
+            <marker date="1481675084010" expanded="true" signature="3545:3592" ph="@{...}" />
+            <marker date="1481675084010" expanded="true" signature="3839:3901" ph="@{...}" />
+            <marker date="1481675084010" expanded="true" signature="3962:4029" ph="@{...}" />
+            <marker date="1481675084010" expanded="true" signature="4188:4195" ph="{}" />
+            <marker date="1481675084010" expanded="true" signature="4341:4486" ph="{...}" />
+            <marker date="1481675084010" expanded="true" signature="4744:7194" ph="{...}" />
+            <marker date="1481675084010" expanded="true" signature="7287:7492" ph="{...}" />
+            <marker date="1481675084010" expanded="true" signature="7739:9544" ph="{...}" />
+            <marker date="1481675084010" expanded="true" signature="9817:11389" ph="{...}" />
+            <marker date="1481675084010" expanded="true" signature="11585:12238" ph="{...}" />
+            <marker date="1481675084010" expanded="true" signature="12362:13463" ph="{...}" />
+            <marker date="1481675084010" expanded="true" signature="13643:14979" ph="{...}" />
+            <marker date="1481675084010" expanded="true" signature="15022:15555" ph="{...}" />
+            <marker date="1481675084010" expanded="true" signature="15631:15798" ph="{...}" />
+            <marker date="1481675084010" expanded="true" signature="15930:16854" ph="{...}" />
+            <marker date="1481675084010" expanded="true" signature="16927:16999" ph="{...}" />
+            <marker date="1481675084010" expanded="false" signature="17059:17070" ph=" { " />
+            <marker date="1481675084010" expanded="false" signature="17097:17103" ph=" }" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/eclipse/sisu/org.eclipse.sisu.plexus/0.0.0.M5/org.eclipse.sisu.plexus-0.0.0.M5.jar!/org/codehaus/plexus/PlexusContainer.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-224">
+          <caret line="22" column="11" lean-forward="false" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/maven/plugins/maven-assembly-plugin/2.4.1/maven-assembly-plugin-2.4.1-sources.jar!/org/apache/maven/plugin/assembly/archive/DefaultAssemblyArchiver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="338">
+          <caret line="169" column="28" lean-forward="false" selection-start-line="169" selection-start-column="28" selection-end-line="169" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/codehaus/plexus/plexus-archiver/2.4.4/plexus-archiver-2.4.4.jar!/org/codehaus/plexus/archiver/Archiver.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="84">
-          <caret line="25" column="62" lean-forward="false" selection-start-line="25" selection-start-column="62" selection-end-line="25" selection-end-column="62" />
+          <caret line="15" column="17" lean-forward="false" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
+          <folding>
+            <marker date="1481675286602" expanded="false" signature="0:104" ph="/.../" />
+            <marker date="1481675286602" expanded="false" signature="152:411" ph="..." />
+            <marker date="1481675286602" expanded="true" signature="759:967" ph="{...}" />
+            <marker date="1481675286602" expanded="true" signature="827:961" ph="{...}" />
+            <marker date="1481675286602" expanded="true" signature="2765:2783" ph="/**...*/" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/codehaus/plexus/plexus-archiver/2.4.4/plexus-archiver-2.4.4.jar!/org/codehaus/plexus/archiver/manager/DefaultArchiverManager.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="32" column="40" lean-forward="false" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
+          <folding>
+            <marker date="1481675286602" expanded="false" signature="0:104" ph="/.../" />
+            <marker date="1481675286602" expanded="false" signature="160:764" ph="..." />
+            <marker date="1481675286602" expanded="true" signature="925:932" ph="{}" />
+            <marker date="1481675286602" expanded="true" signature="1005:1077" ph="{...}" />
+            <marker date="1481675286602" expanded="true" signature="1163:1386" ph="{...}" />
+            <marker date="1481675286602" expanded="true" signature="1478:1709" ph="{...}" />
+            <marker date="1481675286602" expanded="true" signature="1833:2112" ph="{...}" />
+            <marker date="1481675286602" expanded="true" signature="2168:2644" ph="{...}" />
+            <marker date="1481675286602" expanded="true" signature="2720:2784" ph="{...}" />
+            <marker date="1481675286602" expanded="true" signature="2864:2930" ph="{...}" />
+            <marker date="1481675286602" expanded="true" signature="3034:3108" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/codehaus/plexus/plexus-archiver/2.4.4/plexus-archiver-2.4.4.jar!/org/codehaus/plexus/archiver/AbstractArchiver.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="388" column="0" lean-forward="false" selection-start-line="388" selection-start-column="0" selection-end-line="388" selection-end-column="0" />
+          <folding>
+            <marker date="1481675286602" expanded="false" signature="0:104" ph="/.../" />
+            <marker date="1481675286602" expanded="false" signature="152:1903" ph="..." />
+            <marker date="1481675286602" expanded="true" signature="2753:2905" ph="{...}" />
+            <marker date="1481675286602" expanded="false" signature="2947:2958" ph=" { " />
+            <marker date="1481675286602" expanded="false" signature="2988:2994" ph=" }" />
+            <marker date="1481675286602" expanded="true" signature="3051:3372" ph="{...}" />
+            <marker date="1481675286602" expanded="true" signature="3418:3557" ph="{...}" />
+            <marker date="1481675286602" expanded="false" signature="3609:3620" ph=" { " />
+            <marker date="1481675286602" expanded="false" signature="3661:3667" ph=" }" />
+            <marker date="1481675286602" expanded="false" signature="3711:3722" ph=" { " />
+            <marker date="1481675286602" expanded="false" signature="3743:3749" ph=" }" />
+            <marker date="1481675286602" expanded="true" signature="3786:3961" ph="{...}" />
+            <marker date="1481675286602" expanded="false" signature="4004:4015" ph=" { " />
+            <marker date="1481675286602" expanded="false" signature="4043:4049" ph=" }" />
+            <marker date="1481675286602" expanded="true" signature="4055:4073" ph="/**...*/" />
+            <marker date="1481675286602" expanded="false" signature="4118:4129" ph=" { " />
+            <marker date="1481675286602" expanded="false" signature="4162:4168" ph=" }" />
+            <marker date="1481675286602" expanded="true" signature="4219:4370" ph="{...}" />
+            <marker date="1481675286602" expanded="false" signature="4427:4438" ph=" { " />
+            <marker date="1481675286602" expanded="false" signature="4486:4492" ph=" }" />
+            <marker date="1481675286602" expanded="false" signature="4541:4552" ph=" { " />
+            <marker date="1481675286602" expanded="false" signature="4578:4584" ph=" }" />
+            <marker date="1481675286602" expanded="true" signature="4626:4823" ph="{...}" />
+            <marker date="1481675286602" expanded="true" signature="4872:4961" ph="{...}" />
+            <marker date="1481675286602" expanded="true" signature="4967:4985" ph="/**...*/" />
+            <marker date="1481675286602" expanded="false" signature="5035:5046" ph=" { " />
+            <marker date="1481675286602" expanded="false" signature="5084:5090" ph=" }" />
+            <marker date="1481675286602" expanded="false" signature="5132:5143" ph=" { " />
+            <marker date="1481675286602" expanded="false" signature="5172:5178" ph=" }" />
+            <marker date="1481675286602" expanded="false" signature="5241:5252" ph=" { " />
+            <marker date="1481675286602" expanded="false" signature="5293:5299" ph=" }" />
+            <marker date="1481675286602" expanded="true" signature="5371:5420" ph="{...}" />
+            <marker date="1481675286602" expanded="true" signature="5507:5592" ph="{...}" />
+            <marker date="1481675286602" expanded="true" signature="5702:5771" ph="{...}" />
+            <marker date="1481675286602" expanded="true" signature="5896:6215" ph="{...}" />
+            <marker date="1481675286602" expanded="true" signature="6286:7809" ph="{...}" />
+            <marker date="1481675286602" expanded="true" signature="7897:8012" ph="{...}" />
+            <marker date="1481675286602" expanded="true" signature="8146:8474" ph="{...}" />
+            <marker date="1481675286602" expanded="true" signature="8609:9225" ph="{...}" />
+            <marker date="1481675286602" expanded="true" signature="9345:9438" ph="{...}" />
+            <marker date="1481675286602" expanded="true" signature="9543:10854" ph="{...}" />
+            <marker date="1481675286602" expanded="true" signature="10924:15127" ph="{...}" />
+            <marker date="1481675286602" expanded="true" signature="10964:15120" ph="{...}" />
+            <marker date="1481675286602" expanded="true" signature="11247:11397" ph="{...}" />
+            <marker date="1481675286602" expanded="true" signature="11436:14346" ph="{...}" />
+            <marker date="1481675286602" expanded="true" signature="14411:14590" ph="{...}" />
+            <marker date="1481675286602" expanded="true" signature="14631:14974" ph="{...}" />
+            <marker date="1481675286602" expanded="false" signature="15008:15027" ph=" { " />
+            <marker date="1481675286602" expanded="false" signature="15096:15110" ph=" }" />
+            <marker date="1481675286602" expanded="true" signature="15155:15745" ph="{...}" />
+            <marker date="1481675286602" expanded="false" signature="15776:15787" ph=" { " />
+            <marker date="1481675286602" expanded="false" signature="15808:15814" ph=" }" />
+            <marker date="1481675286602" expanded="true" signature="15859:15990" ph="{...}" />
+            <marker date="1481675286602" expanded="true" signature="16025:16298" ph="{...}" />
+            <marker date="1481675286602" expanded="true" signature="16325:16792" ph="{...}" />
+            <marker date="1481675286602" expanded="true" signature="16906:18740" ph="{...}" />
+            <marker date="1481675286602" expanded="true" signature="18835:18882" ph="{...}" />
+            <marker date="1481675286602" expanded="true" signature="18969:19115" ph="{...}" />
+            <marker date="1481675286602" expanded="true" signature="19248:19608" ph="{...}" />
+            <marker date="1481675286602" expanded="true" signature="19703:19796" ph="{...}" />
+            <marker date="1481675286602" expanded="true" signature="19914:20001" ph="{...}" />
+            <marker date="1481675286602" expanded="true" signature="20081:20180" ph="{...}" />
+            <marker date="1481675286602" expanded="true" signature="20253:20616" ph="{...}" />
+            <marker date="1481675286602" expanded="false" signature="20647:20658" ph=" { " />
+            <marker date="1481675286602" expanded="false" signature="20677:20683" ph=" }" />
+            <marker date="1481675286602" expanded="false" signature="20726:20737" ph=" { " />
+            <marker date="1481675286602" expanded="false" signature="20758:20764" ph=" }" />
+            <marker date="1481675286602" expanded="false" signature="20813:20824" ph=" { " />
+            <marker date="1481675286602" expanded="false" signature="20890:20896" ph=" }" />
+            <marker date="1481675286602" expanded="true" signature="20962:21106" ph="{...}" />
+            <marker date="1481675286602" expanded="false" signature="21186:21197" ph=" { " />
+            <marker date="1481675286602" expanded="false" signature="21233:21239" ph=" }" />
+            <marker date="1481675286602" expanded="false" signature="21299:21310" ph=" { " />
+            <marker date="1481675286602" expanded="false" signature="21351:21357" ph=" }" />
+            <marker date="1481675286602" expanded="true" signature="21419:23266" ph="{...}" />
+            <marker date="1481675286602" expanded="true" signature="23329:23583" ph="{...}" />
+            <marker date="1481675286602" expanded="false" signature="23624:23635" ph=" { " />
+            <marker date="1481675286602" expanded="false" signature="23648:23654" ph=" }" />
+            <marker date="1481675286602" expanded="false" signature="23697:23708" ph=" { " />
+            <marker date="1481675286602" expanded="false" signature="23731:23737" ph=" }" />
+            <marker date="1481675286602" expanded="true" signature="23806:24097" ph="{...}" />
+            <marker date="1481675286602" expanded="true" signature="24186:24276" ph="{...}" />
+            <marker date="1481675286602" expanded="true" signature="24354:25161" ph="{...}" />
+            <marker date="1481675286602" expanded="true" signature="25203:25646" ph="{...}" />
+            <marker date="1481675286602" expanded="false" signature="25704:25715" ph=" { " />
+            <marker date="1481675286602" expanded="false" signature="25727:25733" ph=" }" />
+            <marker date="1481675286602" expanded="true" signature="25803:25810" ph="{}" />
+            <marker date="1481675286602" expanded="false" signature="25946:25957" ph=" { " />
+            <marker date="1481675286602" expanded="false" signature="25980:25986" ph=" }" />
+            <marker date="1481675286602" expanded="false" signature="26100:26111" ph=" { " />
+            <marker date="1481675286602" expanded="false" signature="26135:26141" ph=" }" />
+            <marker date="1481675286602" expanded="false" signature="26194:26205" ph=" { " />
+            <marker date="1481675286602" expanded="false" signature="26236:26242" ph=" }" />
+            <marker date="1481675286602" expanded="false" signature="26284:26295" ph=" { " />
+            <marker date="1481675286602" expanded="false" signature="26325:26331" ph=" }" />
+            <marker date="1481675286602" expanded="false" signature="26396:26407" ph=" { " />
+            <marker date="1481675286602" expanded="false" signature="26450:26456" ph=" }" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/TestingMojo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="422" column="35" lean-forward="true" selection-start-line="422" selection-start-column="35" selection-end-line="422" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/IntegrationImportMojo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-176">
+          <caret line="16" column="20" lean-forward="false" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="454">
+          <caret line="109" column="0" lean-forward="false" selection-start-line="109" selection-start-column="0" selection-end-line="113" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/Integration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="244">
+          <caret line="309" column="54" lean-forward="false" selection-start-line="309" selection-start-column="54" selection-end-line="309" selection-end-column="54" />
           <folding />
         </state>
       </provider>

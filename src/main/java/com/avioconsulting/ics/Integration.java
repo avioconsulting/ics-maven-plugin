@@ -12,10 +12,20 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
 
+import org.apache.maven.plugin.assembly.AssemblerConfigurationSource;
+import org.apache.maven.plugin.assembly.InvalidAssemblerConfigurationException;
+import org.apache.maven.plugin.assembly.archive.ArchiveCreationException;
+import org.apache.maven.plugin.assembly.archive.AssemblyArchiver;
+import org.apache.maven.plugin.assembly.archive.DefaultAssemblyArchiver;
+import org.apache.maven.plugin.assembly.format.AssemblyFormattingException;
+import org.apache.maven.plugin.assembly.model.Assembly;
+import org.apache.maven.plugin.assembly.model.FileSet;
 import org.apache.maven.plugin.logging.Log;
 import org.apache.maven.plugin.logging.SystemStreamLog;
 //import org.codehaus.plexus.util.FileUtils;
 import org.apache.commons.io.FileUtils;
+import org.codehaus.plexus.archiver.util.DefaultFileSet;
+import org.codehaus.plexus.archiver.zip.ZipArchiver;
 import org.springframework.core.io.FileSystemResource;
 
 //import org.springframework.http.HttpEntity;
@@ -289,11 +299,46 @@ public class Integration {
      */
     public void packageProject(String basedir) throws IOException {
         projectToIarStructure(basedir + EXPAND_DIR, basedir);
-        buildIar(basedir + EXPAND_DIR, basedir + "/target");
+        buildIarWithArchiver(basedir + EXPAND_DIR, basedir + "/target");
     }
 
+
+    /**
+     * Builds an archive into destLocation using sourceLocation.
+     *
+     * @param sourceLocation        Source directory for archive
+     * @param destLocation          Final archive file
+     * @throws IOException
+     */
+    private void buildIarWithArchiver(String sourceLocation, String destLocation) throws IOException {
+        getLog().info("[Integration.buildIarWithArchiver] Starting");
+
+        // create iar file and associated directory
+        File destination = new File(destLocation + "/" + getName() + "_" + getVersion() + ".iar");
+        new File(destination.getParent()).mkdirs();
+
+        ZipArchiver za = new ZipArchiver();
+        za.setDestFile(destination);
+
+        DefaultFileSet dfs = new DefaultFileSet();
+        dfs.setUsingDefaultExcludes(true);
+        dfs.setDirectory(new File(sourceLocation));
+
+        za.addFileSet(dfs);
+        za.createArchive();
+
+        getLog().info("[Integration.buildIarWithArchiver] Completed building " + destination.getPath());
+    }
+
+    /**
+     * Deprecated.  Use buildIarWithArchiver.
+     * @param sourceLocation
+     * @param destLocation
+     * @throws IOException
+     */
     private void buildIar(String sourceLocation, String destLocation) throws IOException {
         getLog().info("[Integration.buildIar] Starting");
+        getLog().warn("Don't use this archiver, appears to be creating corrupt archives.");
 
         // create iar file and associated directory
         File destination = new File(destLocation + "/" + getName() + "_" + getVersion() + ".iar");
@@ -304,8 +349,9 @@ public class Integration {
 
         File source = new File(sourceLocation);
         addDirToArchive(source, source, zos);
+
         zos.close();
-        dest.close();
+
         getLog().info("[Integration.buildIar] Completed building " + destination.getPath());
     }
 
@@ -340,6 +386,7 @@ public class Integration {
                     while ((count = origin.read(data, 0 , BYTE_SIZE)) != -1){
                         out.write(data, 0, count);
                     }
+//                    out.closeEntry();
                     origin.close();
                 }
             }
