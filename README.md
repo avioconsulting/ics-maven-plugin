@@ -70,9 +70,6 @@ This plugin defines a new packaging type (iar) and hooks into the Maven lifecycl
 * Builds archive from the standard project directory.
 * Parameters: None
 
-### delete
-* TODO
-
 ### updateConnection
 * Updates a connection, using the src/main/resources/config property files.
 * Parameters:
@@ -81,10 +78,6 @@ This plugin defines a new packaging type (iar) and hooks into the Maven lifecycl
 	| ---- | ------------- | -------------- |
 	| connection | | (Required) Name of the connection to update |
 
-### deleteConnection
-* TODO
-
-
 ## Setup
 
 ### Building/installing
@@ -92,7 +85,7 @@ This plugin defines a new packaging type (iar) and hooks into the Maven lifecycl
 1. Until the plugin is published to Maven Central, run `mvn clean install` from the `ics-maven-plugin` subdirectory in this repository, to install the plugin in your local `.m2` repository.
 
 
-#### POM setup, example: document definitions
+#### POM setup, example
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -209,20 +202,20 @@ This plugin defines a new packaging type (iar) and hooks into the Maven lifecycl
 First export your project into an empty directory.
 
 ```
-mvn generate-resources -Dexport=true -Denv=DEV
+mvn clean generate-resources -Dexport=true -Denv=DEV
 ```
 This will export the iar, and expand it into a standard project format (/src/main).
 
 Import the integration:
 
 ```
-mvn initialize ics:import -Denv=DEV
+mvn clean package ics:import -Denv=DEV
 ```
 
 Connections need to be manually configured.  After exporting an integration, export a connection property file as follows:
 
 ```
-mvn generate-resources -Denv=DEV -Dexport=true -Dconnection=CONNECTION_NAME
+mvn clean generate-resources -Denv=DEV -Dexport=true -Dconnection=CONNECTION_NAME
 ```
 Update the property file, and put into the /src/main/resources/config folder.
 
