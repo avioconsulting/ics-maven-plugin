@@ -58,10 +58,14 @@ public class IntegrationImportMojo extends AbstractIntegrationMojo {
             for(String key : conns.keySet()){
                 Connection c = conns.get(key);
                 String status = c.getStatus();
-                getLog().info("Connection " + key + " has status " + status);
-                copyConfigFiles(projectDirectory + connectionConfigDir, projectDirectory + "/target/connections");
+                if(status.equalsIgnoreCase("CONFIGURED")) {
+                    getLog().info("Connection " + key + " has status " + status + " ignoring.");
+                } else {
+                    //TODO: just copy the one connection file?
+                    copyConfigFiles(projectDirectory + connectionConfigDir, projectDirectory + "/target/connections");
 //                copyConfigFiles(projectDirectory + "/src/main/resources/config", projectDirectory + "/target/connections");
-                c.updateConnection();
+                    c.updateConnection();
+                }
             }
 
             ii.activate(enableTrace);
@@ -73,7 +77,13 @@ public class IntegrationImportMojo extends AbstractIntegrationMojo {
     }
 
 
-
+    /**
+     * TODO: Refactor this not to use the MavenResourceFiltering, and just use a DirectoryScanner + CopyDirectoryWithScanner
+     *
+     * @param sourceDirectory
+     * @param destinationDirectory
+     * @throws MavenFilteringException
+     */
     private void copyConfigFiles(String sourceDirectory, String destinationDirectory) throws MavenFilteringException {
         // Build resources
         ArrayList<Resource> resources = new ArrayList<Resource>();

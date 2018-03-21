@@ -6,13 +6,18 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
-import org.springframework.util.MultiValueMap;
+import org.springframework.http.client.SimpleClientHttpRequestFactory;
+//import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
+import java.net.InetSocketAddress;
+import java.net.Proxy;
 import java.nio.charset.Charset;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Properties;
+import java.util.Set;
 
 import org.codehaus.plexus.util.Base64;
 
@@ -95,11 +100,14 @@ public class RestUtilities {
      * @param serviceUrl        Context root for the REST call
      * @param httpMethod        HttpMethod for REST call
      * @param body              (Optional) Body element with parameters
-     * @return                  ResponseEntity<String> response
+     * @param urlParams         (Optional) URL Parameters
+     * @param additionalHeaders (Optional) Additional header tags
+     * @return                  ResponseEntity response from rest call
      */
-    // Changed from MultiValueMap<String, Object> to 'Object'
     public ResponseEntity<String> invokeService(final String serviceUrl, final HttpMethod httpMethod, final Object body, Map<String, String> urlParams, Map<String, String> additionalHeaders){
-        getLog().info("[RestUtilities.invokeService] Invoking REST Service");
+        getLog().info("[RestUtilities.invokeService] Invoking a REST Service");
+        getLog().info("[RestUtilities.invokeService] Calling " + httpMethod + " on " + getEnvUrl() + serviceUrl);
+        getLog().info("[RestUtilities.invokeService] Using params: " + urlParams);
         long tmr = System.currentTimeMillis();
         ResponseEntity<String> response;
         if (urlParams == null){
@@ -119,24 +127,10 @@ public class RestUtilities {
 
             return null;
         }
-        getLog().info("[RestUtilities.invokeService] Calling " + httpMethod + " on " + getEnvUrl() + serviceUrl);
-        getLog().info("[RestUtilities.invokeService] Using params: " + urlParams);
         getLog().info("[RestUtilities.invokeService] Service returned " + response.getStatusCode() + " in " + (System.currentTimeMillis() - tmr) + " ms.");
 
         return response;
     }
-
-//    HttpHeaders createHeadersWithoutContent(String username, String password){
-//        return new HttpHeaders() {{
-//            String auth = username + ":" + password;
-//        byte[] unencodedAuth = auth.getBytes(Charset.forName("US-ASCII"));
-//        byte[] encodedAuth = Base64.encodeBase64(unencodedAuth);
-//            String authHeader = "Basic " + new String( encodedAuth );
-//            set( "Authorization", authHeader );
-////            set( "Content-Type", "multipart/form-data");
-//
-//        }};
-//    }
 
     /**
      * Accessor for a RestTemplate object.
@@ -144,7 +138,29 @@ public class RestUtilities {
      */
     public RestTemplate getRt() {
         if (rt == null) {
-            rt = new RestTemplate();
+            getLog().info("[RestUtilities.getRt] checking Proxy properties");
+            Properties props = System.getProperties();
+            String proxyHost = props.getProperty("http.proxyHost");
+            String proxyPort = props.getProperty("http.proxyPort");
+            if(proxyHost==null || proxyHost.length()<1){
+                // check environment
+                Map<String, String> envVars = System.getenv();
+                proxyHost = envVars.get("HTTP_PROXY_HOST");
+                proxyPort = envVars.get("HTTP_PROXY_PORT");
+            }
+
+            if(proxyHost!=null && proxyHost.length()>0){
+                // we have a proxy!
+                getLog().info("[RestUtilities.getRt] Using Proxy: " + proxyHost + ":" + proxyPort);
+                SimpleClientHttpRequestFactory requestFactory = new SimpleClientHttpRequestFactory();
+                Proxy proxy= new Proxy(Proxy.Type.HTTP, new InetSocketAddress(proxyHost, Integer.parseInt(proxyPort)));
+                requestFactory.setProxy(proxy);
+                rt = new RestTemplate(requestFactory);
+            } else {
+                getLog().info("[RestUtilities.getRt] No proxy information set.  To enable this feature set the properties http.proxyHost / http.proxyPort or system variables HTTP_PROXY_HOST / HTTP_PROXY_PORT.");
+                rt = new RestTemplate();
+            }
+
         }
         return rt;
     }
@@ -191,4 +207,20 @@ public class RestUtilities {
     public void setLog(Log log) {
         this.log = log;
     }
+
+//    public void printSystemVariables(){
+//        getLog().info("*********************   System Properties Start  ****************************");
+//        Properties props = System.getProperties();
+//        Set<String> sysProps = props.stringPropertyNames();
+//        for(String key : sysProps){
+//            getLog().info("  [" + key + "] " + props.getProperty(key));
+//        }
+//        getLog().info("*********************   System Properties End    ****************************");
+//        getLog().info("*********************   ENV Variables Start  ****************************");
+//        Map<String, String> sysVars = System.getenv();
+//        for(String key : sysVars.keySet()){
+//            getLog().info("  [" + key + "] " + sysVars.get(key));
+//        }
+//        getLog().info("*********************   ENV Variables End     ****************************");
+//    }
 }

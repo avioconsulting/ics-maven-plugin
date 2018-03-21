@@ -5,39 +5,24 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.*;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
+import java.util.*;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
 
-import org.apache.maven.plugin.assembly.AssemblerConfigurationSource;
-import org.apache.maven.plugin.assembly.InvalidAssemblerConfigurationException;
-import org.apache.maven.plugin.assembly.archive.ArchiveCreationException;
-import org.apache.maven.plugin.assembly.archive.AssemblyArchiver;
-import org.apache.maven.plugin.assembly.archive.DefaultAssemblyArchiver;
-import org.apache.maven.plugin.assembly.format.AssemblyFormattingException;
-import org.apache.maven.plugin.assembly.model.Assembly;
-import org.apache.maven.plugin.assembly.model.FileSet;
 import org.apache.maven.plugin.logging.Log;
 import org.apache.maven.plugin.logging.SystemStreamLog;
-//import org.codehaus.plexus.util.FileUtils;
 import org.apache.commons.io.FileUtils;
 import org.codehaus.plexus.archiver.util.DefaultFileSet;
 import org.codehaus.plexus.archiver.zip.ZipArchiver;
+import org.codehaus.plexus.util.Scanner;
 import org.springframework.core.io.FileSystemResource;
 
-//import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
-
-//import javax.json.Json;
-//import javax.json.JsonBuilderFactory;
-//import javax.json.JsonObject;
 
 /**
  * An ICS Integration class.  This exposes control commands
@@ -139,7 +124,7 @@ public class Integration {
      * running integration.
      *
      * @param archiveName   Name of the IAR file.
-     * @throws Exception
+     * @throws Exception    Any exceptions while connecting to ICS
      */
     public void importIntegration(final String archiveName) throws Exception {
         getLog().info("[Integration.importIntegration] Starting");
@@ -183,7 +168,10 @@ public class Integration {
     /**
      * Exports the integration writing a file Name_Version.iar
      *
-     * @throws IOException
+     * @param expand        Boolean to expand the export
+     * @param cleanFirst    Boolean to remove the src folder before exporting
+     * @param basedir       Base directory of the project
+     * @throws IOException  Any exceptions while connecting to ICS
      */
     public void exportIntegration(final Boolean expand, final Boolean cleanFirst, String basedir) throws IOException {
         getLog().info("[Integration.exportIntegration] Starting");
@@ -210,7 +198,7 @@ public class Integration {
      * Helper method to remove directories.
      *
      * @param dir               File object to the directory
-     * @throws IOException
+     * @throws IOException      Exceptions while removing directory
      */
     private void removeDir(File dir) throws IOException {
         if(dir.exists() && dir.isDirectory()) {
@@ -222,7 +210,7 @@ public class Integration {
      *
      * @param fileZip           Compressed filename
      * @param cleanFirst        Boolean to remove exisiting folders before expansion
-     * @throws IOException
+     * @throws IOException      Exceptions while removing directory
      */
     private void expandIar(final String fileZip, final Boolean cleanFirst, final String basedir) throws IOException {
         getLog().info("[Integration.expandIar] Decompression for " + fileZip + " has commenced.");
@@ -242,7 +230,6 @@ public class Integration {
         byte[] buffer = new byte[BYTE_SIZE];
 
         ZipInputStream zis = new ZipInputStream(new FileInputStream(fileZip));
-        getLog().info("ExpandIAR: available: " + zis.available());
         ZipEntry zipEntry = zis.getNextEntry();
         while (zipEntry != null) {
             String fileName = zipEntry.getName();
@@ -295,7 +282,8 @@ public class Integration {
     /**
      * Converts the project structure to an export format, and creates an iar file.
      *
-     * @throws IOException
+     * @param basedir       Base directory of the project
+     * @throws IOException  Exception during packaging
      */
     public void packageProject(String basedir) throws IOException {
         projectToIarStructure(basedir + EXPAND_DIR, basedir);
@@ -308,7 +296,7 @@ public class Integration {
      *
      * @param sourceLocation        Source directory for archive
      * @param destLocation          Final archive file
-     * @throws IOException
+     * @throws IOException          Exceptions building archive
      */
     private void buildIarWithArchiver(String sourceLocation, String destLocation) throws IOException {
         getLog().info("[Integration.buildIarWithArchiver] Starting");
@@ -332,9 +320,9 @@ public class Integration {
 
     /**
      * Deprecated.  Use buildIarWithArchiver.
-     * @param sourceLocation
-     * @param destLocation
-     * @throws IOException
+     * @param sourceLocation        Source directory to build IAR
+     * @param destLocation          Destination location for the IAR
+     * @throws IOException          Exceptions during building
      */
     private void buildIar(String sourceLocation, String destLocation) throws IOException {
         getLog().info("[Integration.buildIar] Starting");
@@ -361,7 +349,7 @@ public class Integration {
      * @param rootDirectory             Directory to add to the ZipOutputStream
      * @param currentDirectory          Initially the same as root
      * @param out                       ZipOutputStream
-     * @throws IOException
+     * @throws IOException              Exceptions during building archive
      */
     private void addDirToArchive(File rootDirectory, File currentDirectory, ZipOutputStream out) throws IOException {
         byte[] data = new byte[BYTE_SIZE];
@@ -401,7 +389,7 @@ public class Integration {
      *   src/main/resources/schedule     - to - icspackage/schedule
      *   src/main/iar                    - to - icspackage/project/NAME_VERSION
      * @param destLocation          String location for the iar structure
-     * @throws IOException
+     * @throws IOException          Exceptions moving around files
      */
     private void projectToIarStructure(String destLocation, String basedir) throws IOException {
         getLog().info("[Integration.projectToIarStructure] Starting");
@@ -410,6 +398,7 @@ public class Integration {
             // dest location must be something, else it'll be copied to root.
             destLocation = ".";
         }
+
         copyDirectory(new File(basedir + "/src/main/resources/connections"),destLocation + "/icspackage/appinstances");
         copyDirectory(new File(basedir + "/src/main/resources/lookups"),destLocation + "/icspackage/dvms");
         copyDirectory(new File(basedir + "/src/main/resources/schedule"),destLocation + "/icspackage/schedule");
@@ -419,24 +408,80 @@ public class Integration {
     }
 
     /**
-     * Helper method wrapping FileUtils to copy a directory if the source exists and it is a directory.
+     * Helper method wrapping utils to copy a directory if the source exists and it is a directory.
      *
      * @param source            File object of the source directory
-     * @param dest              String location of the destination
-     * @throws IOException
+     * @param dest              String location of the
+     * @throws IOException      Exceptions copying directories
      */
     private void copyDirectory(File source, String dest) throws IOException {
-        getLog().debug("[Integration.copyDirectory] Copying " + source.getName() + " to " + dest);
+        getLog().info("[Integration.copyDirectory] Copying " + source.getName() + " to " + dest);
+
         if(source.exists() && source.isDirectory()) {
+//            DirectoryScanner scanner = new DirectoryScanner();
+//            scanner.setBasedir(source);
+//            scanner.addDefaultExcludes();
+//            scanner.scan();
+
             File destFile = new File(dest);
             new File(destFile.getParent()).mkdirs();
             FileUtils.copyDirectory(source, destFile);
 
+            // yup, only copies directorys... :/
+//            copyDirectoryLayout(source, destFile, scanner);
+
         } else {
             getLog().warn("[Integration.copyDirectory] Attempted to copy " + source.getName() + " either it doesn't exist, or isn't a directory.");
         }
-        getLog().debug("[Integration.copyDirectory] Done copying " + source + " to " + dest);
+        getLog().info("[Integration.copyDirectory] Done copying " + source + " to " + dest);
 
+    }
+
+    /**
+     * Scanner imposed directory copy to only copy 'good' directories (addExcludes/Includes)
+     *
+     * @param sourceDirectory           File object of the source directory
+     * @param destinationDirectory      File object of the destination directory
+     * @param scanner                   Scanner object
+     * @throws IOException              Exception copying directories
+     */
+    private void copyDirectoryLayout( File sourceDirectory, File destinationDirectory, Scanner scanner )
+            throws IOException
+    {
+        if ( sourceDirectory == null )
+        {
+            throw new IOException( "source directory can't be null." );
+        }
+
+        if ( destinationDirectory == null )
+        {
+            throw new IOException( "destination directory can't be null." );
+        }
+
+        if ( sourceDirectory.equals( destinationDirectory ) )
+        {
+            throw new IOException( "source and destination are the same directory." );
+        }
+
+        if ( !sourceDirectory.exists() )
+        {
+            throw new IOException( "Source directory doesn't exists (" + sourceDirectory.getAbsolutePath() + ")." );
+        }
+
+        List<String> includedDirectories = Arrays.asList( scanner.getIncludedDirectories() );
+
+        for ( String name : includedDirectories )
+        {
+            File source = new File( sourceDirectory, name );
+
+            if ( source.equals( sourceDirectory ) )
+            {
+                continue;
+            }
+
+            File destination = new File( destinationDirectory, name );
+            destination.mkdirs();
+        }
     }
 
 
@@ -445,7 +490,7 @@ public class Integration {
      *
      * @param filename      Name of the file to be created
      * @param contents      String contents of the file
-     * @throws IOException
+     * @throws IOException  Exceptions writing file
      */
     private void writeFile(final String filename, final String contents) throws IOException {
         File f = new File("target");
@@ -510,6 +555,12 @@ public class Integration {
         return node != null ? node.path("status").asText() : "UNKNOWN";
     }
 
+    /**
+     * Looks at the 'connectionproperites' tag of the connection, and then source and target connections, returning
+     * a map of unique connections.
+     *
+     * @return      Map of connection name and details
+     */
     public Map<String, Connection> getConnections(){
         if(connections == null) {
             getLog().info("[Integration.getConnections] Finding connections.");
@@ -584,19 +635,37 @@ public class Integration {
         return version;
     }
 
+    /**
+     * Accessor for RestUtilities
+     * @return      RestUtilities
+     */
     public RestUtilities getUtil() {
         return util;
     }
 
+    /**
+     * Setter for RestUtility
+     * @param username      Username of ICS user
+     * @param password      Password of said user
+     * @param baseUrl       ICS base url
+     */
     public void setUtil(String username, String password, String baseUrl) {
         this.util = new RestUtilities(baseUrl, username, password);
     }
 
+    /**
+     * Setter for Logger
+     * @param log   Logger
+     */
     public void setLog(Log log) {
         this.util.setLog(log);
         this.log = log;
     }
 
+    /**
+     * Accessor for Logger
+     * @return  Logger
+     */
     public Log getLog() {
         if (log==null) {
             log = new SystemStreamLog();

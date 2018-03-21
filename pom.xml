@@ -8,6 +8,33 @@
     <artifactId>ics-maven-plugin</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>maven-plugin</packaging>
+
+    <name>${project.groupId}:${project.artifactId}</name>
+    <description>Maven plugin for interacting with Oracle Integration Cloud Service (ICS)</description>
+    <url>https://github.com/avioconsulting/ics-maven-plugin</url>
+
+    <licenses>
+        <license>
+            <name>BSD 2-Clause License</name>
+            <url>https://opensource.org/licenses/BSD-2-Clause</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>Kevin King</name>
+            <email>kking@avioconsulting.com</email>
+            <organization>AVIO Consulting</organization>
+            <organizationUrl>http://www.avioconsulting.com</organizationUrl>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git://github.com/avioconsulting/ics-maven-plugin.git</connection>
+        <developerConnection>scm:git:ssh://github.com:avioconsulting/ics-maven-plugin.git</developerConnection>
+        <url>https://github.com/avioconsulting/ics-maven-plugin</url>
+    </scm>
+
     <build>
         <plugins>
             <plugin>
@@ -19,84 +46,124 @@
                 </configuration>
             </plugin>
 
+            <!-- For publishing to maven central -->
+            <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <version>1.6.7</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <serverId>ossrh</serverId>
+                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.2.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.9.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>1.5</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 
     <dependencies>
+        <dependency>
+            <groupId>org.sonatype.nexus.maven</groupId>
+            <artifactId>nexus-common</artifactId>
+            <version>1.6.8</version>
+        </dependency>
 
-    <!-- Maven dependencies -->
-    <dependency>
-        <groupId>org.apache.maven</groupId>
-        <artifactId>maven-plugin-api</artifactId>
-        <version>3.2.1</version>
-    </dependency>
-    <dependency>
-        <groupId>org.apache.maven</groupId>
-        <artifactId>maven-core</artifactId>
-        <version>3.2.1</version>
-    </dependency>
-    <dependency>
-        <groupId>org.apache.maven.plugin-tools</groupId>
-        <artifactId>maven-plugin-annotations</artifactId>
-        <version>3.2</version>
-        <scope>provided</scope>
-    </dependency>
-    <!--<dependency>-->
-        <!--<groupId>org.apache.maven</groupId>-->
-        <!--<artifactId>maven-compat</artifactId>-->
-        <!--<version>3.2.1</version>-->
-        <!--<scope>test</scope>-->
-    <!--</dependency>-->
-    <!--<dependency>-->
-        <!--<groupId>org.apache.maven.plugin-testing</groupId>-->
-        <!--<artifactId>maven-plugin-testing-harness</artifactId>-->
-        <!--<version>3.1.0</version>-->
-        <!--<scope>test</scope>-->
-    <!--</dependency>-->
-    <dependency>
-        <groupId>junit</groupId>
-        <artifactId>junit</artifactId>
-        <version>3.8.1</version>
-        <scope>test</scope>
-    </dependency>
+        <!-- Maven dependencies -->
+        <dependency>
+            <groupId>org.apache.maven</groupId>
+            <artifactId>maven-plugin-api</artifactId>
+            <version>3.2.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.maven</groupId>
+            <artifactId>maven-core</artifactId>
+            <version>3.2.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.maven.plugin-tools</groupId>
+            <artifactId>maven-plugin-annotations</artifactId>
+            <version>3.2</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+            <scope>test</scope>
+        </dependency>
 
-    <!-- Spring rest stuff -->
-    <!-- https://mvnrepository.com/artifact/org.springframework/spring-web -->
-    <dependency>
-        <groupId>org.springframework</groupId>
-        <artifactId>spring-web</artifactId>
-        <version>3.0.2.RELEASE</version>
-    </dependency>
+        <!-- Spring rest stuff -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>3.0.5.RELEASE</version>
+        </dependency>
 
-    <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-devtools</artifactId>
-        <version>1.3.0.RELEASE</version>
-    </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <version>1.3.0.RELEASE</version>
+        </dependency>
 
-    <!-- for object xml manipulating -->
-    <dependency>
-        <groupId>com.fasterxml.jackson.core</groupId>
-        <artifactId>jackson-databind</artifactId>
-        <version>2.9.3</version>
-    </dependency>
+        <!-- for object xml manipulating -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.9.3</version>
+        </dependency>
 
-    <dependency>
-        <groupId>org.apache.httpcomponents</groupId>
-        <artifactId>httpclient</artifactId>
-        <version>4.5.3</version>
-    </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.3</version>
+        </dependency>
 
-    <dependency>
-        <groupId>org.apache.httpcomponents</groupId>
-        <artifactId>httpcore</artifactId>
-        <version>4.4.5</version>
-    </dependency>
-        <!--<dependency>-->
-            <!--<groupId>com.oracle.weblogic</groupId>-->
-            <!--<artifactId>javax.javaee-api</artifactId>-->
-            <!--<version>12.2.1-2-0</version>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpcore</artifactId>
+            <version>4.4.5</version>
+        </dependency>
+
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
@@ -112,5 +179,49 @@
             <artifactId>maven-assembly-plugin</artifactId>
             <version>2.4.1</version>
         </dependency>
+        <dependency>
+            <groupId>org.codehaus.plexus</groupId>
+            <artifactId>plexus-archiver</artifactId>
+            <version>2.4.4</version>
+        </dependency>
     </dependencies>
+
+
+
+    <!--<distributionManagement>-->
+        <!--<snapshotRepository>-->
+            <!--<id>ossrh</id>-->
+            <!--<url>https://oss.sonatype.org/content/repositories/snapshots</url>-->
+        <!--</snapshotRepository>-->
+        <!--<repository>-->
+            <!--<id>ossrh</id>-->
+            <!--<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>-->
+        <!--</repository>-->
+    <!--</distributionManagement>-->
+<distributionManagement>
+
+    <repository>
+        <id>avio-releases</id>
+        <name>AVIO releases</name>
+        <url>https://devops.avioconsulting.com/nexus/repository/avio-releases</url>
+        <layout>default</layout>
+    </repository>
+    <snapshotRepository>
+        <id>avio-snapshots</id>
+        <name>AVIO snapshots</name>
+        <url>https://devops.avioconsulting.com/nexus/repository/avio-snapshots</url>
+    </snapshotRepository>
+ <!--<repository>-->
+    <!--<id>APLM Orchestration_repo</id>-->
+    <!--<name>APLM Orchestration Maven Repository</name>-->
+    <!--<url>https://developer.us2.oraclecloud.com/profile/developer02209-a420857/s/developer02209-a420857_aplm-orchestration_23919/maven/</url>-->
+  <!--</repository>-->
+  <!--<snapshotRepository>-->
+    <!--<id>APLM Orchestration_repo</id>-->
+    <!--<name>APLM OrchestrationMaven Repository</name>-->
+    <!--<url>https://developer.us2.oraclecloud.com/profile/developer02209-a420857/s/developer02209-a420857_aplm-orchestration_23919/maven/</url>-->
+  <!--</snapshotRepository>-->
+</distributionManagement>
+
+
 </project>
