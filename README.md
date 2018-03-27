@@ -82,7 +82,18 @@ This plugin defines a new packaging type (iar) and hooks into the Maven lifecycl
 
 ### Building/installing
 
-1. Until the plugin is published to Maven Central, run `mvn clean install` from the `ics-maven-plugin` subdirectory in this repository, to install the plugin in your local `.m2` repository.
+The plugin has been released to Maven Central, just include the 'packaging' field in your pom header and the plugin details.
+```xml
+  <packaging>iar</packaging>
+. . .
+
+      <plugin>
+        <groupId>com.avioconsulting.maven</groupId>
+        <artifactId>ics-maven-plugin</artifactId>
+        <version>1.0</version>
+        <extensions>true</extensions>
+      </plugin>
+```      
 
 
 #### POM setup, example
@@ -184,7 +195,7 @@ This plugin defines a new packaging type (iar) and hooks into the Maven lifecycl
       <plugin>
         <groupId>com.avioconsulting.maven</groupId>
         <artifactId>ics-maven-plugin</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.0</version>
         <extensions>true</extensions>
         <configuration />
       </plugin>
