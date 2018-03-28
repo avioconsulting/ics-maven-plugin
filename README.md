@@ -45,7 +45,7 @@ This plugin defines a new packaging type (iar) and hooks into the Maven lifecycl
 	| expand | true | Expands into standard project directory |
 	| clean | false | Removes local src/main directories (except src/main/config) to be replaced by export |
 	| connection |  | Name of connection to export (must be used in conjection with export=true) |
-	| overwrite | false | Replaces connection property file (must be used in conjection with connection) |
+	| overwrite | false | Replaces connection property file (must be used in conjunction with connection) |
 
 ### import
 * Builds an iar archive file from source, and imports into ICS.
@@ -58,8 +58,8 @@ This plugin defines a new packaging type (iar) and hooks into the Maven lifecycl
 	| importFile | target/NAME_VERSION.iar | Allows direct import of an iar archive |
 
 ### importOnly
-* The importOnly goal is to build and only import an iar.
-* This does not handle deactivate or activate, including updating any connections.
+* The importOnly goal is to only import an iar.
+* This does not handle packaging, deactivate, or activate, including updating any connections.
 * Parameters:
 
 	| Name | Default Value | Description |
