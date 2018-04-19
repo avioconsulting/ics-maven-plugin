@@ -21,6 +21,7 @@ public class Connection {
     private static final String UPDATE_URL = "/icsapis/v2/connections/{id}";
 
     private String configFile;
+    private String configDirectory;
 
     private final String id;
     private RestUtilities util;
@@ -44,13 +45,13 @@ public class Connection {
 
     public void updateConnection() throws Exception {
         getLog().debug("[Connection.updateConnection] Starting");
-        long tmr = System.currentTimeMillis();
 
         File f = new File(getConfigFile());
         if (!f.exists()) {
             getLog().error("ERROR: Unable to find config file, " + getId() + ".json");
             getLog().error("       Execute the generate-resources phase with the export and connection name parameters to create a properties template.");
             getLog().error("       ie. mvn generate-resources -Dexport=true -Dconnection=" + getId());
+            getLog().error("File location: " + f.getAbsolutePath());
 
             throw new Exception("Unable to find configuration for: " + getConfigFile());
         }
@@ -145,7 +146,11 @@ public class Connection {
 
     public String getConfigFile() {
         if(configFile==null || configFile.length()<1){
-            configFile = "target/connections/" + getId() + ".json";
+            if(getConfigDirectory() != null && getConfigDirectory().length() > 0) {
+                configFile = getConfigDirectory() + "/" + getId() + ".json";
+            } else {
+                configFile = "target/connections/" + getId() + ".json";
+            }
         }
         return configFile;
     }
@@ -160,5 +165,13 @@ public class Connection {
     public void setLog(Log log) {
         this.util.setLog(log);
         this.log = log;
+    }
+
+    public String getConfigDirectory(){
+        return configDirectory;
+    }
+
+    public void setConfigDirectory(String configDir){
+        configDirectory = configDir;
     }
 }

@@ -18,8 +18,12 @@ public class ConnectionUpdateMojo extends AbstractIntegrationMojo{
         checkEnvProperties();
         Connection conn = new Connection(connection, baseUrl, icsUser, icsPassword);
         conn.setLog(getLog());
+        String projectDirectory = project.getBasedir().getAbsolutePath();
         try {
             //TODO add copy prop file to /target/config/ with filtering.
+            // Update - just copy the one file... for now lets copy them all
+            copyConfigFiles(projectDirectory + connectionConfigDir, projectDirectory + "/target/connections");
+            conn.setConfigDirectory(projectDirectory + "/target/connections");
             conn.updateConnection();
         } catch (Exception e) {
             e.printStackTrace();

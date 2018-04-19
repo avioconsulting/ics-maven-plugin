@@ -27,19 +27,7 @@ public class IntegrationImportMojo extends AbstractIntegrationMojo {
     @Parameter(property = "importFile", required = false)
     private String importFile;
 
-    // Below for 'copy-resources' functionality
 
-    @Parameter( defaultValue = "${session}", readonly = true, required = true )
-    protected MavenSession session;
-
-    @Component( role = MavenResourcesFiltering.class, hint = "default" )
-    protected MavenResourcesFiltering mavenResourcesFiltering;
-
-    @Parameter( defaultValue = "${project.build.filters}", readonly = true )
-    protected List<String> buildFilters;
-
-    @Parameter( defaultValue = "true" )
-    protected boolean useBuildFilters;
 
     @Override
     public void execute() throws MojoExecutionException, MojoFailureException {
@@ -57,11 +45,13 @@ public class IntegrationImportMojo extends AbstractIntegrationMojo {
             Map<String, Connection> conns = ii.getConnections();
             for(String key : conns.keySet()){
                 Connection c = conns.get(key);
+                c.setConfigDirectory(projectDirectory + "/target/connections");
                 String status = c.getStatus();
                 if(status.equalsIgnoreCase("CONFIGURED")) {
                     getLog().info("Connection " + key + " has status " + status + " ignoring.");
                 } else {
                     //TODO: just copy the one connection file?
+
                     copyConfigFiles(projectDirectory + connectionConfigDir, projectDirectory + "/target/connections");
 //                copyConfigFiles(projectDirectory + "/src/main/resources/config", projectDirectory + "/target/connections");
                     c.updateConnection();
@@ -77,45 +67,5 @@ public class IntegrationImportMojo extends AbstractIntegrationMojo {
     }
 
 
-    /**
-     * TODO: Refactor this not to use the MavenResourceFiltering, and just use a DirectoryScanner + CopyDirectoryWithScanner
-     *
-     * @param sourceDirectory
-     * @param destinationDirectory
-     * @throws MavenFilteringException
-     */
-    private void copyConfigFiles(String sourceDirectory, String destinationDirectory) throws MavenFilteringException {
-        // Build resources
-        ArrayList<Resource> resources = new ArrayList<Resource>();
-        Resource resource = new Resource();
-        resource.setDirectory(sourceDirectory);
-        ArrayList<String> includes = new ArrayList<String>();
-        includes.add("*.json");
-        resource.setIncludes(includes);
-        resource.setFiltering(true);
-        resources.add(resource);
 
-        //output directory
-        File outputDir = new File(destinationDirectory);
-        if(!outputDir.exists()){
-            new File(outputDir.getParent()).mkdirs();
-        }
-
-        // encoding
-        String encoding = ReaderFactory.FILE_ENCODING;
-
-        //List<String> nonFilteredFileExtensions
-        List<String> nonFilteredFileExtensions = Collections.<String>emptyList();
-
-        MavenResourcesExecution mavenResourcesExecution = new MavenResourcesExecution( resources, outputDir, project, encoding, buildFilters, nonFilteredFileExtensions, session );
-
-        mavenResourcesFiltering.filterResources( mavenResourcesExecution );
-
-        List<MavenResourcesFiltering> mavenFilteringComponents = new ArrayList<MavenResourcesFiltering>();
-
-        for ( MavenResourcesFiltering filter : mavenFilteringComponents )
-        {
-            filter.filterResources( mavenResourcesExecution );
-        }
-    }
 }
