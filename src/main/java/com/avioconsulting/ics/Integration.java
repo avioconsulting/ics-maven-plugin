@@ -32,7 +32,7 @@ public class Integration {
 
     public static final String STATUS_NOT_FOUND = "HTTP 404 Not Found";
     public static final String STATUS_ACTIVATED = "ACTIVATED";
-    public static final String EXPAND_DIR = "/target/iar";
+    public static final String EXPAND_DIR = "/target/export-iar";
 
     private static final Integer BYTE_SIZE = 2048;
 
