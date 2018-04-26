@@ -8,6 +8,7 @@ import org.apache.commons.io.FileUtils;
 import org.apache.maven.plugin.logging.Log;
 import org.apache.maven.plugin.logging.SystemStreamLog;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.apache.commons.io.IOUtils;
 
@@ -19,6 +20,7 @@ public class Connection {
 
     private static final String STATUS_URL = "/icsapis/v2/connections/{id}";
     private static final String UPDATE_URL = "/icsapis/v2/connections/{id}";
+    private static final String DELETE_URL = "/icsapis/v2/connections/{id}";
 
     private String configFile;
     private String configDirectory;
@@ -173,5 +175,25 @@ public class Connection {
 
     public void setConfigDirectory(String configDir){
         configDirectory = configDir;
+    }
+
+    public void deleteConnection() throws Exception {
+        getLog().debug("[Connection.deleteConnection] Starting");
+
+        Map<String, String> params = new HashMap<String, String>();
+        params.put("id", getId());
+
+        ResponseEntity<String> res = util.invokeService(DELETE_URL, HttpMethod.DELETE, null, params, null);
+
+        if (res!=null && res.getStatusCode() != HttpStatus.OK) {
+            getLog().info("--------------------------------------------------------------------------------------------------------------");
+            getLog().info("Connection " + getId() + " cannot be deleted.");
+            getLog().info("Response: " + res.toString());
+            getLog().info(res.getStatusCode().toString());
+            getLog().info("--------------------------------------------------------------------------------------------------------------\n");
+            throw new Exception(res.getBody());
+        }
+
+        getLog().debug("[Connection.deleteConnection] Complete");
     }
 }

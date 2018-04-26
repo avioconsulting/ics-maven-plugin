@@ -1,0 +1,112 @@
+{
+    "adapterType": {
+        "displayName": "FTP",
+        "name": "ftp",
+        "type": "PREINSTALLED"
+    },
+    "connectionProperties": [
+        {
+            "hiddenFlag": false,
+            "propertyName": "Host",
+            "propertyValue": "** HIDDEN **",
+            "requiredFlag": true
+        },
+        {
+            "hiddenFlag": false,
+            "propertyName": "Port",
+            "propertyValue": "** HIDDEN **",
+            "requiredFlag": true
+        },
+        {
+            "hiddenFlag": false,
+            "propertyName": "UseSftp",
+            "propertyValue": "** HIDDEN **",
+            "requiredFlag": false
+        },
+        {
+            "hiddenFlag": false,
+            "propertyName": "HostKeyCertificate",
+            "propertyValue": "** HIDDEN **",
+            "requiredFlag": false
+        },
+        {
+            "hiddenFlag": false,
+            "propertyName": "SSLCERTIFICATE",
+            "propertyValue": "** HIDDEN **",
+            "requiredFlag": false
+        },
+        {
+            "hiddenFlag": false,
+            "propertyName": "ServerTimeZone",
+            "propertyValue": "** HIDDEN **",
+            "requiredFlag": false
+        }
+    ],
+    "id": "AVIO_FTP",
+    "lastUpdated": "2018-04-19T20:02:45.523+0000",
+    "lastUpdatedBy": "kking@avioconsulting.com",
+    "links": [
+        {
+            "href": "https://devhospiraworkibm-a515456.integration.us2.oraclecloud.com:443/icsapis/v2/connections/AVIO_FTP",
+            "rel": "self"
+        },
+        {
+            "href": "https://devhospiraworkibm-a515456.integration.us2.oraclecloud.com:443/icsapis/v2/connections/AVIO_FTP",
+            "rel": "canonical"
+        }
+    ],
+    "name": "AVIO_FTP",
+    "percentageComplete": 100,
+    "securityPolicy": "CUSTOM",
+    "securityProperties": [
+        {
+            "hiddenFlag": false,
+            "propertyName": "username",
+            "propertyValue": "** HIDDEN **",
+            "requiredFlag": true
+        },
+        {
+            "hiddenFlag": false,
+            "propertyName": "password",
+            "propertyValue": "** HIDDEN **",
+            "requiredFlag": true
+        },
+        {
+            "hiddenFlag": false,
+            "propertyName": "WalletPassword",
+            "propertyValue": "** HIDDEN **",
+            "requiredFlag": false
+        },
+        {
+            "hiddenFlag": false,
+            "propertyName": "PGPPUBLICKEY",
+            "propertyValue": "** HIDDEN **",
+            "requiredFlag": false
+        },
+        {
+            "hiddenFlag": false,
+            "propertyName": "PGPASCIIARMOR",
+            "propertyValue": "** HIDDEN **",
+            "requiredFlag": false
+        },
+        {
+            "hiddenFlag": false,
+            "propertyName": "PGPCIPHER",
+            "propertyValue": "** HIDDEN **",
+            "requiredFlag": false
+        },
+        {
+            "hiddenFlag": false,
+            "propertyName": "PGPPRIVATEKEY",
+            "propertyValue": "** HIDDEN **",
+            "requiredFlag": false
+        },
+        {
+            "hiddenFlag": false,
+            "propertyName": "PGPPRIVATEKEYPASSWORD",
+            "propertyValue": "** HIDDEN **",
+            "requiredFlag": false
+        }
+    ],
+    "status": "CONFIGURED"
+}

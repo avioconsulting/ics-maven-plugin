@@ -41,13 +41,13 @@ public class Integration {
     private RestUtilities util;
     private Log log;
 
-    private static final String STATUS_URL = "/icsapis/v1/integrations/{integration}/{version}";
+    private static final String STATUS_URL = "/icsapis/v2/integrations/{integration}|{version}";
     /* PUT to replace, POST for new */
     private static final String IMPORT_URL = "/icsapis/v2/integrations/archive";
     /* GET */
     private static final String EXPORT_URL = "/icsapis/v2/integrations/{id}/archive";
     /* DELETE */
-    private static final String DELETE_URL = "/icsapis/v2/integrations/{id}/archive";
+    private static final String DELETE_URL = "/icsapis/v2/integrations/{id}";
     /* Activate and Deactivate must use v1 */
     private static final String DEACTIVATE_URL = "/icsapis/v1/integrations/{integration}/{version}/deactivate";
     private static final String ACTIVATE_URL = "/icsapis/v1/integrations/{integration}/{version}/activate?enablePayloadTracing={payloadTrace}&enableTracing={enableTrace}";
@@ -556,7 +556,7 @@ public class Integration {
     }
 
     /**
-     * Looks at the 'connectionproperites' tag of the connection, and then source and target connections, returning
+     * Looks at the 'connectionproperties' tag of the connection, and then source and target connections, returning
      * a map of unique connections.
      *
      * @return      Map of connection name and details
@@ -567,52 +567,58 @@ public class Integration {
             Map<String, Connection> m = new HashMap<String, Connection>();
             JsonNode integration = retrieveIntegrationDetails();
             //Items
-            JsonNode itemsNode = integration.path("invokes").path("items");
+            JsonNode itemsNode = integration.path("endPoints");
             // array of items
             if(itemsNode.isArray()) {
                 Iterator<JsonNode> items = itemsNode.elements();
                 while (items.hasNext()) {
                     JsonNode item = items.next();
-                    String connName = item.path("code").asText();
-                    if(item.hasNonNull("connectionproperties")){
+                    if(item.hasNonNull("connection")){
+                        String connName = item.path("connection").path("id").asText();
                         m.put(connName, new Connection(connName, util, getLog()));
                         getLog().debug("Adding Connection: " + connName + " to map.");
                     } else {
-                        getLog().debug("Not a connection... : " + connName);
+                        getLog().debug("Not a connection... : " + item.asText());
                     }
                 }
             } else {
+                /* should always be an array now... */
+                getLog().error("[Integration.getConnections] Something is wrong... should not be here... ");
                 //Single item
-                String connName = itemsNode.path("code").asText();
-
-                if(itemsNode.hasNonNull("connectionproperties")) {
-                    getLog().debug("[Integration.getConnections] Adding Connection: " + connName + " to map.");
-                    m.put(connName, new Connection(connName, util, getLog()));
-                } else {
-                    getLog().debug("[Integration.getConnections] Not a connection... : " + connName);
-                }
+//                String connName = itemsNode.path("code").asText();
+//
+//                if(itemsNode.hasNonNull("connectionproperties")) {
+//                    getLog().debug("[Integration.getConnections] Adding Connection: " + connName + " to map.");
+//                    m.put(connName, new Connection(connName, util, getLog()));
+//                } else {
+//                    getLog().debug("[Integration.getConnections] Not a connection... : " + connName);
+//                }
 
             }
 
-            JsonNode source = integration.path("sourceConnection");
-            String sourceName = source.path("code").asText();
-            if(source.hasNonNull("connectionproperties")) {
-                getLog().debug("[Integration.getConnections] Adding Source connection: " + sourceName + " to map.");
-                m.put(sourceName, new Connection(sourceName, util, getLog()));
-            }else {
-
-                getLog().debug("[Integration.getConnections] Not a connection... : " + sourceName);
-            }
-
-            JsonNode target = integration.path("targetConnection");
-            String targetName = target.path("code").asText();
-            if(target.hasNonNull("connectionproperties")) {
-                getLog().debug("[Integration.getConnections] Adding Target connection: " + targetName + " to map.");
-                m.put(targetName, new Connection(targetName, util, getLog()));
-            }else {
-
-                getLog().debug("[Integration.getConnections] Not a connection... : " + targetName);
-            }
+            /*
+            Leaving this here for now, but should be deprecated, v2 does not return source/target connection info individually
+            they come back in the connectionProperties section with a new 'role' element
+             */
+//            JsonNode source = integration.path("sourceConnection");
+//            String sourceName = source.path("code").asText();
+//            if(source.hasNonNull("connectionproperties")) {
+//                getLog().debug("[Integration.getConnections] Adding Source connection: " + sourceName + " to map.");
+//                m.put(sourceName, new Connection(sourceName, util, getLog()));
+//            }else {
+//
+//                getLog().debug("[Integration.getConnections] Not a connection... : " + sourceName);
+//            }
+//
+//            JsonNode target = integration.path("targetConnection");
+//            String targetName = target.path("code").asText();
+//            if(target.hasNonNull("connectionproperties")) {
+//                getLog().debug("[Integration.getConnections] Adding Target connection: " + targetName + " to map.");
+//                m.put(targetName, new Connection(targetName, util, getLog()));
+//            }else {
+//
+//                getLog().debug("[Integration.getConnections] Not a connection... : " + targetName);
+//            }
             getLog().info("[Integration.getConnections] Integration " + getName() + " has " + m.size() + " unique connections.");
             connections = m;
         }
@@ -671,5 +677,37 @@ public class Integration {
             log = new SystemStreamLog();
         }
         return log;
+    }
+
+    public void delete(boolean removeConnections) throws Exception {
+        getLog().info("[Integration.delete] Starting.");
+        String status = getStatus();
+
+        getLog().info("[Integration.delete] Current status: " + status);
+        if (status.equalsIgnoreCase("ACTIVATED")){
+        // if configured, deactivate
+            deactivate();
+        } else if(status.equalsIgnoreCase("UNKNOWN")) {
+            // if unknown... STOP
+            getLog().error("[Integration.delete] Integration status is unknown.  Does the integration exist?");
+            throw new Exception("Integration status is unknown.  Does the integration exist?");
+        }
+        //save off connections
+        Map<String,Connection> connections = getConnections();
+
+        // delete
+        getLog().info("[Integration.delete] Deleting integration.");
+        Map<String, String> params = new HashMap<String, String>();
+        params.put("id", getName() + "|" + getVersion());
+
+        ResponseEntity<String> res = util.invokeService(DELETE_URL, HttpMethod.DELETE, null, params, null);
+
+        if(removeConnections){
+            for(String name : connections.keySet()){
+                getLog().info("[Integration.delete] Removing connection " + name);
+                connections.get(name).deleteConnection();
+            }
+        }
+        getLog().info("[Integration.delete] Completed.");
     }
 }

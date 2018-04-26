@@ -1,0 +1,95 @@
+{
+    "code": "AVIO_FTP_INTEGRATIO",
+    "compatible": true,
+    "created": "2018-04-19T18:04:13.549+0000",
+    "createdBy": "kking@avioconsulting.com",
+    "description": "",
+    "endPoints": [
+        {
+            "connection": {
+                "id": "AVIO_FTP",
+                "links": [
+                    {
+                        "href": "https://avioconsulting.oraclecloud.com/icsapis/v2/connections/AVIO_FTP",
+                        "rel": "self"
+                    },
+                    {
+                        "href": "https://avioconsulting.oraclecloud.com/icsapis/v2/connections/AVIO_FTP",
+                        "rel": "canonical"
+                    }
+                ]
+            },
+            "name": "ReadFromFTP",
+            "role": "TARGET"
+        }
+    ],
+    "id": "AVIO_FTP_INTEGRATIO|01.00.0000",
+    "lastUpdated": "2018-04-19T20:03:01.025+0000",
+    "lastUpdatedBy": "kking@avioconsulting.com",
+    "links": [
+        {
+            "href": "https://avioconsulting.oraclecloud.com/icsapis/v2/integrations/AVIO_FTP_INTEGRATIO%7C01.00.0000",
+            "rel": "self"
+        },
+        {
+            "href": "https://avioconsulting.oraclecloud.com/icsapis/v2/integrations/AVIO_FTP_INTEGRATIO%7C01.00.0000",
+            "rel": "canonical"
+        },
+        {
+            "href": "https://avioconsulting.oraclecloud.com/icsapis/v2/monitoring/integrations/AVIO_FTP_INTEGRATIO%7C01.00.0000",
+            "rel": "monitoring"
+        }
+    ],
+    "name": "AVIO_FTP Integration",
+    "packageName": "avio.integration",
+    "pattern": "Schedule",
+    "payloadTracingEnabledFlag": false,
+    "percentageComplete": 100,
+    "projectType": "DEVELOPED",
+    "scheduleApplicableFlag": true,
+    "scheduleDefinedFlag": true,
+    "scheduleParams": {},
+    "status": "ACTIVATED",
+    "submitNowURI": "https://avioconsulting.oraclecloud.com/icsapis/v2/integrations/AVIO_FTP_INTEGRATIO%7C01.00.0000/schedule/jobs",
+    "tracingEnabledFlag": false,
+    "trackingInstanceName": "start Time",
+    "trackingVariables": [
+        {
+            "name": "start Time",
+            "output": {
+                "messageContextRef": {
+                    "refUri": "messagecontext_2"
+                },
+                "name": "output_3"
+            },
+            "primary": true,
+            "role": "tracking_var_1",
+            "xpath": "/schedule/startTime"
+        },
+        {
+            "name": "tracking_var_2",
+            "output": {
+                "messageContextRef": {
+                    "refUri": "messagecontext_4"
+                },
+                "name": "output_5"
+            },
+            "primary": false,
+            "role": "tracking_var_2",
+            "xpath": ""
+        },
+        {
+            "name": "tracking_var_3",
+            "output": {
+                "messageContextRef": {
+                    "refUri": "messagecontext_6"
+                },
+                "name": "output_7"
+            },
+            "primary": false,
+            "role": "tracking_var_3",
+            "xpath": ""
+        }
+    ],
+    "version": "01.00.0000"
+}

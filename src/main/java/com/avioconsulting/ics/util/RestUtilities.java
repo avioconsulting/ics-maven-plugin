@@ -123,8 +123,9 @@ public class RestUtilities {
                 response = getRt().exchange(getEnvUrl() + serviceUrl, httpMethod, entity, String.class, urlParams);
             }
         } catch (HttpClientErrorException ex){
-            getLog().error("Error: " + ex.getMessage(), ex);
-
+            // Catch the error, and return null, handle 404's from the caller.
+//            getLog().error("Error: " + ex.getMessage(), ex);
+            getLog().warn("[RestUtilities.invokeService] HttpError: " + ex.getMessage());
             return null;
         }
         getLog().info("[RestUtilities.invokeService] Service returned " + response.getStatusCode() + " in " + (System.currentTimeMillis() - tmr) + " ms.");
