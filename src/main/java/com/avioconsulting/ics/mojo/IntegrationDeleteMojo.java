@@ -22,6 +22,9 @@ public class IntegrationDeleteMojo extends AbstractIntegrationMojo {
         Integration ii = new Integration(integrationName, integrationVersion, baseUrl, icsUser, icsPassword);
         ii.setLog(getLog());
         try {
+            if(!removeConnections) {
+                getLog().info("[Mojo:delete] NOT removing connections. Set -DremoveConnections=true to remove connections for this integration.");
+            }
             ii.delete(removeConnections);
         } catch (Exception e) {
             throw new MojoExecutionException(e.getMessage());

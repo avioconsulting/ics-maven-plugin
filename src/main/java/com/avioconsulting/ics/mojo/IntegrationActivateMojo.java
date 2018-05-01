@@ -16,11 +16,11 @@ public class IntegrationActivateMojo extends AbstractIntegrationMojo{
 
     @Override
     public void execute() throws MojoExecutionException, MojoFailureException {
-        getLog().info("Activating integration " + integrationName + "_" + integrationVersion + " from " + baseUrl);
+        getLog().info("[Mojo:activate] Activating integration " + integrationName + "_" + integrationVersion + " from " + baseUrl);
         checkEnvProperties();
 
         if(enableTrace){
-            getLog().info("EnableTrace is set to true, set -DenableTrace=false to disable it.");
+            getLog().info("[Mojo:activate] EnableTrace is set to true, set -DenableTrace=false to disable it.");
         }
         Integration ii = new Integration(integrationName, integrationVersion, baseUrl, icsUser, icsPassword);
         ii.setLog(getLog());

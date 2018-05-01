@@ -42,6 +42,7 @@ public class Integration {
     private Log log;
 
     private static final String STATUS_URL = "/icsapis/v2/integrations/{integration}|{version}";
+    private static final String STATUS_URL_V1 = "/icsapis/v1/integrations/{integration}/{version}";
     /* PUT to replace, POST for new */
     private static final String IMPORT_URL = "/icsapis/v2/integrations/archive";
     /* GET */
@@ -516,20 +517,27 @@ public class Integration {
     }
 
     /**
+     * Default call to get integration details using V2 of the API
+     *
+     * @return      A JSONNode object with the integration details
+     */
+    private JsonNode retrieveIntegrationDetails() {
+        return retrieveIntegrationDetails(false);
+    }
+    /**
      * Calls the rest service to retrieve details regarding the integration.
      *
-     * @return      A JSONNode object with all integration details
+     * @return      A JSONNode object with the integration details
      */
-    private JsonNode retrieveIntegrationDetails(){
+    private JsonNode retrieveIntegrationDetails(boolean versionOne){
         getLog().info("[Integration.retrieveIntegrationDetails] Starting");
-        long tmr = System.currentTimeMillis();
         JsonNode node = null;
 
         Map<String, String> params = new HashMap<String, String>();
         params.put("integration", getName());
         params.put("version", getVersion());
-
-        ResponseEntity<String> res = util.invokeService(STATUS_URL, HttpMethod.GET, null, params, null);
+        String url = versionOne ? STATUS_URL_V1 : STATUS_URL;
+        ResponseEntity<String> res = util.invokeService(url, HttpMethod.GET, null, params, null);
         ObjectMapper om = new ObjectMapper();
         if(res != null) {
             try {
@@ -556,76 +564,134 @@ public class Integration {
     }
 
     /**
-     * Looks at the 'connectionproperties' tag of the connection, and then source and target connections, returning
-     * a map of unique connections.
+     * Returns a map of unique connections.
      *
      * @return      Map of connection name and details
      */
     public Map<String, Connection> getConnections(){
-        if(connections == null) {
+        return getConnections(false);
+    }
+
+
+    /**
+     * Looks at the 'endPoints' tag of the connection, returning
+     * a map of unique connections.  This uses v2 of the API
+     *
+     * @param versionOne    Flag to use v1
+     * @return      Map of connection name and details
+     */
+    public Map<String, Connection> getConnections(boolean versionOne){
+        if(connections == null || connections.size() == 0) {
             getLog().info("[Integration.getConnections] Finding connections.");
             Map<String, Connection> m = new HashMap<String, Connection>();
-            JsonNode integration = retrieveIntegrationDetails();
-            //Items
-            JsonNode itemsNode = integration.path("endPoints");
-            // array of items
-            if(itemsNode.isArray()) {
-                Iterator<JsonNode> items = itemsNode.elements();
-                while (items.hasNext()) {
-                    JsonNode item = items.next();
-                    if(item.hasNonNull("connection")){
-                        String connName = item.path("connection").path("id").asText();
-                        m.put(connName, new Connection(connName, util, getLog()));
-                        getLog().debug("Adding Connection: " + connName + " to map.");
+            JsonNode integration = retrieveIntegrationDetails(versionOne);
+            if(integration != null) {
+                if (versionOne) {
+                    if (integration.hasNonNull("invokes")) {
+                        m = parseConnectionProperties(integration.path("invokes").path("items"), integration.path("sourceConnection"), integration.path("targetConnection"));
                     } else {
-                        getLog().debug("Not a connection... : " + item.asText());
+                        getLog().warn("Unable to find 'invokes' element in integration details (version one)");
+                    }
+                } else {
+                    if (integration.hasNonNull("endPoints")) {
+                        m = parseEndPoints(integration.path("endPoints"));
+                    } else {
+                        getLog().warn("Unable to find 'endPoints' element in integration details (version two)");
                     }
                 }
-            } else {
-                /* should always be an array now... */
-                getLog().error("[Integration.getConnections] Something is wrong... should not be here... ");
-                //Single item
-//                String connName = itemsNode.path("code").asText();
-//
-//                if(itemsNode.hasNonNull("connectionproperties")) {
-//                    getLog().debug("[Integration.getConnections] Adding Connection: " + connName + " to map.");
-//                    m.put(connName, new Connection(connName, util, getLog()));
-//                } else {
-//                    getLog().debug("[Integration.getConnections] Not a connection... : " + connName);
-//                }
-
             }
-
-            /*
-            Leaving this here for now, but should be deprecated, v2 does not return source/target connection info individually
-            they come back in the connectionProperties section with a new 'role' element
-             */
-//            JsonNode source = integration.path("sourceConnection");
-//            String sourceName = source.path("code").asText();
-//            if(source.hasNonNull("connectionproperties")) {
-//                getLog().debug("[Integration.getConnections] Adding Source connection: " + sourceName + " to map.");
-//                m.put(sourceName, new Connection(sourceName, util, getLog()));
-//            }else {
-//
-//                getLog().debug("[Integration.getConnections] Not a connection... : " + sourceName);
-//            }
-//
-//            JsonNode target = integration.path("targetConnection");
-//            String targetName = target.path("code").asText();
-//            if(target.hasNonNull("connectionproperties")) {
-//                getLog().debug("[Integration.getConnections] Adding Target connection: " + targetName + " to map.");
-//                m.put(targetName, new Connection(targetName, util, getLog()));
-//            }else {
-//
-//                getLog().debug("[Integration.getConnections] Not a connection... : " + targetName);
-//            }
-            getLog().info("[Integration.getConnections] Integration " + getName() + " has " + m.size() + " unique connections.");
             connections = m;
         }
-
         return connections;
-
     }
+
+    /**
+     * Parsing ConnectionProperties element from API v1
+     *
+     * @param itemsNode         JsonNode of items in v1
+     *                          JsonNode of source
+     * @return                  Map<String, Connection> of unique connections for an integration
+     */
+    private Map<String, Connection> parseConnectionProperties(JsonNode itemsNode, JsonNode source, JsonNode target) {
+        getLog().debug("[Integration.parseConnectionProperties] Starting parsing");
+        Map<String, Connection> m = new HashMap<String, Connection>();
+        if(itemsNode.isArray()) {
+            Iterator<JsonNode> items = itemsNode.elements();
+            while (items.hasNext()) {
+                JsonNode item = items.next();
+                String connName = item.path("code").asText();
+                if(item.hasNonNull("connectionproperties")){
+                    m.put(connName, new Connection(connName, util, getLog()));
+                    getLog().debug("[Integration.parseConnectionProperties] Adding Connection: " + connName + " to map.");
+                } else {
+                    getLog().debug("[Integration.parseConnectionProperties] Not a connection... : " + connName);
+                }
+            }
+        } else {
+            //Single item
+            String connName = itemsNode.path("code").asText();
+
+            if(itemsNode.hasNonNull("connectionproperties")) {
+                getLog().debug("[Integration.parseConnectionProperties] Adding Connection: " + connName + " to map.");
+                m.put(connName, new Connection(connName, util, getLog()));
+            } else {
+                getLog().debug("[Integration.parseConnectionProperties] Not a connection... : " + connName);
+            }
+        }
+
+//        JsonNode source = integration.path("sourceConnection");
+        String sourceName = source.path("code").asText();
+        if(source.hasNonNull("connectionproperties")) {
+            getLog().debug("[Integration.parseConnectionProperties] Adding Source connection: " + sourceName + " to map.");
+            m.put(sourceName, new Connection(sourceName, util, getLog()));
+        }else {
+
+            getLog().debug("[Integration.parseConnectionProperties] Not a connection... : " + sourceName);
+        }
+//        JsonNode target = integration.path("targetConnection");
+        String targetName = target.path("code").asText();
+        if(target.hasNonNull("connectionproperties")) {
+            getLog().debug("[Integration.parseConnectionProperties] Adding Target connection: " + targetName + " to map.");
+            m.put(targetName, new Connection(targetName, util, getLog()));
+        }else {
+
+            getLog().debug("[Integration.parseConnectionProperties] Not a connection... : " + targetName);
+        }
+        getLog().debug("[Integration.parseConnectionProperties] Completed parsing");
+        return m;
+    }
+
+    /**
+     * Parsing EndPoints element from API v2
+     *
+     * @param itemsNode         JsonNode of items in v2
+     * @return                  Map<String, Connection> of unique connections for an integration
+     */
+    private Map<String, Connection> parseEndPoints(JsonNode itemsNode){
+        getLog().debug("[Integration.parseEndPoints] Starting parsing");
+        Map<String, Connection> m = new HashMap<String, Connection>();
+        if(itemsNode.isArray()) {
+            Iterator<JsonNode> items = itemsNode.elements();
+            while (items.hasNext()) {
+                JsonNode item = items.next();
+                if(item.hasNonNull("connection")){
+                    String connName = item.path("connection").path("id").asText();
+                    m.put(connName, new Connection(connName, util, getLog()));
+                    getLog().debug("[Integration.parseEndPoints] Adding Connection: " + connName + " to map.");
+                } else {
+                    getLog().debug("[Integration.parseEndPoints] Not a connection... : " + item.asText());
+                }
+            }
+        } else {
+            /* should always be an array now... */
+            getLog().error("[Integration.parseEndPoints] Something is wrong... endPoints element should return an array. ");
+
+        }
+        getLog().debug("[Integration.parseEndPoints] Completed parsing");
+        return m;
+    }
+
+
     /**
      * Accessor for Name attribute.
      * @return      Name

@@ -31,7 +31,7 @@ public class IntegrationImportMojo extends AbstractIntegrationMojo {
 
     @Override
     public void execute() throws MojoExecutionException, MojoFailureException {
-        getLog().info("Importing integration " + integrationName + "_" + integrationVersion + " to " + baseUrl);
+        getLog().info("[Mojo:import] Importing integration " + integrationName + "_" + integrationVersion + " to " + baseUrl);
         checkEnvProperties();
         String projectDirectory = project.getBasedir().getAbsolutePath();
         try {
@@ -43,12 +43,17 @@ public class IntegrationImportMojo extends AbstractIntegrationMojo {
             ii.importIntegration(importFile);
 
             Map<String, Connection> conns = ii.getConnections();
+            if(conns.size() == 0) {
+                // A bit dirty, but if the getConnections fails, it might be a '412 precondition failed' state
+                // this is caused by a 'new' connection that has not been configured.
+                conns = ii.getConnections(true);
+            }
             for(String key : conns.keySet()){
                 Connection c = conns.get(key);
                 c.setConfigDirectory(projectDirectory + "/target/connections");
                 String status = c.getStatus();
                 if(status.equalsIgnoreCase("CONFIGURED")) {
-                    getLog().info("Connection " + key + " has status " + status + " ignoring.");
+                    getLog().info("[Mojo:import] Connection " + key + " has status " + status + " ignoring.");
                 } else {
                     //TODO: just copy the one connection file?
 
