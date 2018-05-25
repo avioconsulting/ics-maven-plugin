@@ -230,3 +230,9 @@ mvn clean generate-resources -Denv=DEV -Dexport=true -Dconnection=CONNECTION_NAM
 ```
 Update the property file, and put into the /src/main/resources/config folder.
 
+## Release 1.1 Enhancements
+* Delete Goal for Integrations
+* Delete Goal for Connections
+* Reference to project directory fix when not deploying from integration dir
+
+
