@@ -10,6 +10,8 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
 
+import org.apache.commons.io.filefilter.FileFilterUtils;
+import org.apache.commons.io.filefilter.IOFileFilter;
 import org.apache.maven.plugin.logging.Log;
 import org.apache.maven.plugin.logging.SystemStreamLog;
 import org.apache.commons.io.FileUtils;
@@ -287,10 +289,19 @@ public class Integration {
      * @throws IOException  Exception during packaging
      */
     public void packageProject(String basedir) throws IOException {
+        packageProject(basedir, false);
+    }
+
+    /**
+     * Converts the project structure to an export format, and creates an iar file.
+     *
+     * @param basedir       Base directory of the project
+     * @throws IOException  Exception during packaging
+     */
+    public void packageProject(String basedir, boolean replaceTokens) throws IOException {
         projectToIarStructure(basedir + EXPAND_DIR, basedir);
         buildIarWithArchiver(basedir + EXPAND_DIR, basedir + "/target");
     }
-
 
     /**
      * Builds an archive into destLocation using sourceLocation.
@@ -419,17 +430,13 @@ public class Integration {
         getLog().info("[Integration.copyDirectory] Copying " + source.getName() + " to " + dest);
 
         if(source.exists() && source.isDirectory()) {
-//            DirectoryScanner scanner = new DirectoryScanner();
-//            scanner.setBasedir(source);
-//            scanner.addDefaultExcludes();
-//            scanner.scan();
 
             File destFile = new File(dest);
             new File(destFile.getParent()).mkdirs();
-            FileUtils.copyDirectory(source, destFile);
 
-            // yup, only copies directorys... :/
-//            copyDirectoryLayout(source, destFile, scanner);
+            // Don't copy in the .json property files (these break the import...)
+            IOFileFilter ff = FileFilterUtils.notFileFilter(FileFilterUtils.suffixFileFilter(".json"));
+            FileUtils.copyDirectory(source, destFile, ff);
 
         } else {
             getLog().warn("[Integration.copyDirectory] Attempted to copy " + source.getName() + " either it doesn't exist, or isn't a directory.");

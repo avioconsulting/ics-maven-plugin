@@ -2,7 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2d510b43-daeb-4e31-84b1-3b5878359061" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_maven_replacer_plugin_replacer_1_5_3.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_lang_commons_lang_2_6.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_11.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_ant_ant_1_8_2.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_ant_ant_launcher_1_8_2.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_groovy_groovy_all_2_4_15.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__xerces_xercesImpl_2_8_0.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__xml_apis_xml_apis_1_3_03.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/Replacement.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/TempMojo.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/util/FileUtilities.java" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_3_8_1.xml" afterPath="" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/ics-maven-plugin.iml" afterPath="$PROJECT_DIR$/ics-maven-plugin.iml" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/Integration.java" afterPath="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/Integration.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/IntegrationPackageMojo.java" afterPath="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/IntegrationPackageMojo.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -21,127 +38,7 @@
     </option>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="IntegrationDeleteMojo.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/IntegrationDeleteMojo.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="32" column="1" lean-forward="true" selection-start-line="32" selection-start-column="1" selection-end-line="32" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IntegrationActivateMojo.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/IntegrationActivateMojo.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="21" column="24" lean-forward="true" selection-start-line="21" selection-start-column="24" selection-end-line="22" selection-end-column="112" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Integration.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/Integration.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="172">
-              <caret line="394" column="67" lean-forward="false" selection-start-line="394" selection-start-column="67" selection-end-line="394" selection-end-column="67" />
-              <folding>
-                <element signature="e#21209#21210#0" expanded="true" />
-                <element signature="e#21265#21266#0" expanded="true" />
-                <element signature="e#22958#22959#0" expanded="true" />
-                <element signature="e#23002#23003#0" expanded="true" />
-                <element signature="e#27817#27837#0" expanded="true" />
-                <element signature="e#28918#28919#0" expanded="true" />
-                <element signature="e#28945#28946#0" expanded="true" />
-                <element signature="e#29061#29062#0" expanded="true" />
-                <element signature="e#29091#29092#0" expanded="true" />
-                <element signature="e#29213#29214#0" expanded="true" />
-                <element signature="e#29240#29241#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IntegrationPackageMojo.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/IntegrationPackageMojo.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="16" column="26" lean-forward="true" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AbstractIntegrationMojo.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/AbstractIntegrationMojo.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="51" column="38" lean-forward="true" selection-start-line="51" selection-start-column="38" selection-end-line="51" selection-end-column="38" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RestUtilities.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/util/RestUtilities.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="697">
-              <caret line="127" column="68" lean-forward="false" selection-start-line="127" selection-start-column="68" selection-end-line="127" selection-end-column="68" />
-              <folding>
-                <element signature="e#2062#2063#0" expanded="true" />
-                <element signature="e#2104#2105#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IntegrationImportMojo.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/IntegrationImportMojo.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="76" column="0" lean-forward="true" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ConnectionDeleteMojo.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/ConnectionDeleteMojo.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="27" column="1" lean-forward="true" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IntegrationTest.groovy" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/avioconsulting/ics/IntegrationTest.groovy">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="293">
-              <caret line="87" column="9" lean-forward="true" selection-start-line="87" selection-start-column="9" selection-end-line="87" selection-end-column="9" />
-              <folding>
-                <element signature="e#32#80#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ConnectionUpdateMojo.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/ConnectionUpdateMojo.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="56">
-              <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="56" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -205,7 +102,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/IcsServices.java" />
         <option value="$PROJECT_DIR$/src/main/resources/META-INF/plexus/components.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/IntegrationDeactivateMojo.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/IntegrationPackageMojo.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/IntegrationExportMojo.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/IntegrationAssembler.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/TestingMojo.java" />
@@ -214,14 +110,18 @@
         <option value="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/ConnectionUpdateMojo.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/util/RestUtilities.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/avioconsulting/ics/ConnectionTest.groovy" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/Connection.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/avioconsulting/ics/IntegrationTest.groovy" />
         <option value="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/ConnectionDeleteMojo.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/Integration.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/IntegrationImportMojo.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/IntegrationActivateMojo.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/IntegrationDeleteMojo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/util/FileUtilities.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/Replacement.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/Integration.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/IntegrationPackageMojo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/TempMojo.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
   </component>
@@ -238,10 +138,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="2149" />
-    <option name="y" value="159" />
+    <option name="x" value="164" />
+    <option name="y" value="123" />
     <option name="width" value="1678" />
-    <option name="height" value="917" />
+    <option name="height" value="931" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -261,9 +161,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -358,16 +255,23 @@
               <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="ics-maven-plugin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="project.propDebugger" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///home/kevin/code/avio/maven-plugins/ics-maven-plugin/src/main/java/com/avioconsulting/ics/Integration.java" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../maven-assembly-plugin-3.1.0" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../maven-replacer-plugin/trunk" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="Groovy JUnit" />
   </component>
   <component name="RecentsManager">
@@ -657,15 +561,13 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="2149" y="159" width="1678" height="917" extended-state="0" />
-    <editor active="true" />
+    <frame x="164" y="123" width="1678" height="931" extended-state="0" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32802936" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3288835" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28151774" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28151774" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="CheckStyle" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20525451" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -676,6 +578,7 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3273165" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -693,49 +596,11 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/IntegrationImportMojo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="56">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/Integration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2422">
-          <caret line="190" column="11" lean-forward="false" selection-start-line="190" selection-start-column="11" selection-end-line="190" selection-end-column="11" />
-          <folding>
-            <element signature="e#21209#21210#0" expanded="true" />
-            <element signature="e#21265#21266#0" expanded="true" />
-            <element signature="e#22958#22959#0" expanded="true" />
-            <element signature="e#23002#23003#0" expanded="true" />
-            <element signature="e#27817#27837#0" expanded="true" />
-            <element signature="e#28918#28919#0" expanded="true" />
-            <element signature="e#28945#28946#0" expanded="true" />
-            <element signature="e#29061#29062#0" expanded="true" />
-            <element signature="e#29091#29092#0" expanded="true" />
-            <element signature="e#29213#29214#0" expanded="true" />
-            <element signature="e#29240#29241#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/IntegrationExportMojo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="41" column="61" lean-forward="true" selection-start-line="41" selection-start-column="61" selection-end-line="41" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/IcsServices.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/util/RestUtilities.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="910">
           <caret line="71" column="5" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -751,9 +616,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
           <caret line="30" column="31" lean-forward="true" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -762,17 +624,16 @@
         <state relative-caret-position="1106">
           <caret line="79" column="67" lean-forward="true" selection-start-line="79" selection-start-column="67" selection-end-line="79" selection-end-column="67" />
           <folding>
-            <element signature="e#21209#21210#0" expanded="true" />
-            <element signature="e#21265#21266#0" expanded="true" />
-            <element signature="e#22958#22959#0" expanded="true" />
-            <element signature="e#23002#23003#0" expanded="true" />
-            <element signature="e#27817#27837#0" expanded="true" />
-            <element signature="e#28918#28919#0" expanded="true" />
-            <element signature="e#28945#28946#0" expanded="true" />
-            <element signature="e#29061#29062#0" expanded="true" />
-            <element signature="e#29091#29092#0" expanded="true" />
-            <element signature="e#29213#29214#0" expanded="true" />
-            <element signature="e#29240#29241#0" expanded="true" />
+            <element signature="e#21575#21576#0" expanded="false" />
+            <element signature="e#21631#21632#0" expanded="false" />
+            <element signature="e#23324#23325#0" expanded="false" />
+            <element signature="e#23368#23369#0" expanded="false" />
+            <element signature="e#29284#29285#0" expanded="false" />
+            <element signature="e#29311#29312#0" expanded="false" />
+            <element signature="e#29427#29428#0" expanded="false" />
+            <element signature="e#29457#29458#0" expanded="false" />
+            <element signature="e#29579#29580#0" expanded="false" />
+            <element signature="e#29606#29607#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -791,17 +652,16 @@
         <state relative-caret-position="70">
           <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding>
-            <element signature="e#21209#21210#0" expanded="true" />
-            <element signature="e#21265#21266#0" expanded="true" />
-            <element signature="e#22958#22959#0" expanded="true" />
-            <element signature="e#23002#23003#0" expanded="true" />
-            <element signature="e#27817#27837#0" expanded="true" />
-            <element signature="e#28918#28919#0" expanded="true" />
-            <element signature="e#28945#28946#0" expanded="true" />
-            <element signature="e#29061#29062#0" expanded="true" />
-            <element signature="e#29091#29092#0" expanded="true" />
-            <element signature="e#29213#29214#0" expanded="true" />
-            <element signature="e#29240#29241#0" expanded="true" />
+            <element signature="e#21575#21576#0" expanded="false" />
+            <element signature="e#21631#21632#0" expanded="false" />
+            <element signature="e#23324#23325#0" expanded="false" />
+            <element signature="e#23368#23369#0" expanded="false" />
+            <element signature="e#29284#29285#0" expanded="false" />
+            <element signature="e#29311#29312#0" expanded="false" />
+            <element signature="e#29427#29428#0" expanded="false" />
+            <element signature="e#29457#29458#0" expanded="false" />
+            <element signature="e#29579#29580#0" expanded="false" />
+            <element signature="e#29606#29607#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -810,9 +670,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="392">
           <caret line="31" column="19" lean-forward="false" selection-start-line="31" selection-start-column="19" selection-end-line="31" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -927,14 +784,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/plexus/components.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="25" column="19" lean-forward="false" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/LICENSE.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
@@ -960,7 +809,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="532">
           <caret line="45" column="26" lean-forward="false" selection-start-line="45" selection-start-column="26" selection-end-line="45" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -968,17 +816,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="193">
           <caret line="28" column="18" lean-forward="true" selection-start-line="28" selection-start-column="18" selection-end-line="29" selection-end-column="42" />
-          <folding>
-            <element signature="e#32#80#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="169" column="0" lean-forward="true" selection-start-line="169" selection-start-column="0" selection-end-line="169" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -986,23 +823,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="291">
           <caret line="187" column="61" lean-forward="false" selection-start-line="187" selection-start-column="61" selection-end-line="187" selection-end-column="61" />
-          <folding>
-            <element signature="e#6905#6906#0" expanded="true" />
-            <element signature="e#6943#6944#0" expanded="true" />
-            <element signature="e#6998#6999#0" expanded="true" />
-            <element signature="e#7041#7042#0" expanded="true" />
-            <element signature="e#7213#7229#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/avioconsulting/ics/IntegrationTest.groovy">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="293">
-          <caret line="87" column="9" lean-forward="true" selection-start-line="87" selection-start-column="9" selection-end-line="87" selection-end-column="9" />
-          <folding>
-            <element signature="e#32#80#0" expanded="true" />
-          </folding>
+          <caret line="87" column="9" lean-forward="false" selection-start-line="87" selection-start-column="9" selection-end-line="87" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -1010,87 +837,130 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="56">
           <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="56" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/ConnectionDeleteMojo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
-          <caret line="27" column="1" lean-forward="true" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <caret line="27" column="1" lean-forward="false" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/IntegrationActivateMojo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
-          <caret line="21" column="24" lean-forward="true" selection-start-line="21" selection-start-column="24" selection-end-line="22" selection-end-column="112" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/IntegrationDeleteMojo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="32" column="1" lean-forward="true" selection-start-line="32" selection-start-column="1" selection-end-line="32" selection-end-column="1" />
-          <folding />
+          <caret line="21" column="24" lean-forward="false" selection-start-line="21" selection-start-column="24" selection-end-line="22" selection-end-column="112" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/util/RestUtilities.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
+        <state relative-caret-position="1484">
           <caret line="127" column="68" lean-forward="false" selection-start-line="127" selection-start-column="68" selection-end-line="127" selection-end-column="68" />
-          <folding>
-            <element signature="e#2062#2063#0" expanded="true" />
-            <element signature="e#2104#2105#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/Integration.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/IntegrationDeleteMojo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="394" column="67" lean-forward="false" selection-start-line="394" selection-start-column="67" selection-end-line="394" selection-end-column="67" />
-          <folding>
-            <element signature="e#21209#21210#0" expanded="true" />
-            <element signature="e#21265#21266#0" expanded="true" />
-            <element signature="e#22958#22959#0" expanded="true" />
-            <element signature="e#23002#23003#0" expanded="true" />
-            <element signature="e#27817#27837#0" expanded="true" />
-            <element signature="e#28918#28919#0" expanded="true" />
-            <element signature="e#28945#28946#0" expanded="true" />
-            <element signature="e#29061#29062#0" expanded="true" />
-            <element signature="e#29091#29092#0" expanded="true" />
-            <element signature="e#29213#29214#0" expanded="true" />
-            <element signature="e#29240#29241#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/IntegrationPackageMojo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="16" column="26" lean-forward="true" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
+        <state relative-caret-position="70">
+          <caret line="10" column="68" lean-forward="false" selection-start-line="10" selection-start-column="68" selection-end-line="12" selection-end-column="38" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/AbstractIntegrationMojo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="51" column="38" lean-forward="true" selection-start-line="51" selection-start-column="38" selection-end-line="51" selection-end-column="38" />
+        <state relative-caret-position="868">
+          <caret line="77" column="61" lean-forward="false" selection-start-line="77" selection-start-column="61" selection-end-line="77" selection-end-column="61" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/IntegrationImportMojo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="76" column="0" lean-forward="true" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+        <state relative-caret-position="70">
+          <caret line="23" column="13" lean-forward="false" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/util/FileUtilities.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="6" column="5" lean-forward="false" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/IntegrationPackageMojo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="45" column="51" lean-forward="false" selection-start-line="45" selection-start-column="51" selection-end-line="45" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/Integration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3864">
+          <caret line="300" column="68" lean-forward="false" selection-start-line="300" selection-start-column="68" selection-end-line="300" selection-end-column="68" />
+          <folding>
+            <element signature="e#21575#21576#0" expanded="false" />
+            <element signature="e#21631#21632#0" expanded="false" />
+            <element signature="e#23324#23325#0" expanded="false" />
+            <element signature="e#23368#23369#0" expanded="false" />
+            <element signature="e#29284#29285#0" expanded="false" />
+            <element signature="e#29311#29312#0" expanded="false" />
+            <element signature="e#29427#29428#0" expanded="false" />
+            <element signature="e#29457#29458#0" expanded="false" />
+            <element signature="e#29579#29580#0" expanded="false" />
+            <element signature="e#29606#29607#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/Replacement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="24" column="45" lean-forward="false" selection-start-line="24" selection-start-column="45" selection-end-line="24" selection-end-column="45" />
+          <folding>
+            <element signature="e#143#144#0" expanded="false" />
+            <element signature="e#171#172#0" expanded="false" />
+            <element signature="e#213#214#0" expanded="false" />
+            <element signature="e#247#248#0" expanded="false" />
+            <element signature="e#279#280#0" expanded="false" />
+            <element signature="e#307#308#0" expanded="false" />
+            <element signature="e#349#350#0" expanded="false" />
+            <element signature="e#383#384#0" expanded="false" />
+            <element signature="e#414#415#0" expanded="false" />
+            <element signature="e#466#467#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/avioconsulting/ics/mojo/TempMojo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="434">
+          <caret line="43" column="23" lean-forward="false" selection-start-line="43" selection-start-column="23" selection-end-line="43" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/plexus/components.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="19" column="38" lean-forward="false" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="219" column="1" lean-forward="false" selection-start-line="219" selection-start-column="1" selection-end-line="219" selection-end-column="1" />
           <folding />
         </state>
       </provider>
